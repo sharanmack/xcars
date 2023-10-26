@@ -104,6 +104,18 @@
     color: #ff0000;
 }
 
+/* login.component.css */
+.button-style {
+    background-color: #007bff; /* Change to your desired background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    /* Add any other styles you want */
+  }
+  
+
+
 @media (max-width:767px) {
     body {
         padding: 10px;
