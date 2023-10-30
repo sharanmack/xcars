@@ -1,34 +1,84 @@
-
 <app-intro></app-intro>
-
 
 <div class="row gx-4 gx-lg-5">
     <div class="col-md-4 mb-5">
-        <div class="card h-100">
-            <div class="card-body">
-                <h2 class="card-title">Tribal Tattoo </h2>
+        <div class="card h-1">
+            <div class="card-body d-flex flex-column">
+                <h2 class="card-title">Tribal Tattoo</h2>
                 <p class="card-text">Tribal tattoos are the oldest in the world, dating back thousands of years. This style should actually be thought of as multiple styles or more so different traditions of tattooing from aboriginal communities all around the globe.</p>
             </div>
-            <div class="card-footer">
-                <a class="btn btn-primary btn-sm" href="https://www.bing.com/images/search?q=tribal+tattoo&qpvt=tribal+tattoo&form=IGRE&first=1">More Info</a></div>
-        </div>
-    </div>
-    <div class="col-md-4 mb-5">
-        <div class="card h-100">
-            <div class="card-body">
-                <h2 class="card-title">Neo Traditional Tattoo </h2>
-                <p class="card-text">Neo traditional, as the name implies, is an evolution of the traditional style. It features the core properties of its predecessor, like pronounced linework and extremely vibrant colors but it also has an illustrative quality to it. </p>
+            <div class="card-footer mt-auto">
+                <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo1()">More Info</button>
             </div>
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href="https://www.bing.com/images/search?q=Neo%20Traditional%20Tattoo&qs=n&form=QBIR&sp=-1&lq=0&pq=neo%20traditional%20tattoo&sc=10-22&cvid=373A038B95BD4379B22D91A2FE1B55F4&ghsh=0&ghacc=0&first=1">More Info</a></div>
         </div>
-    </div>
-    <div class="col-md-4 mb-5">
-        <div class="card h-100">
-            <div class="card-body">
-                <h2 class="card-title">Blackwork Tattoo </h2>
-                <p class="card-text">Stylistically speaking, blackwork is a very broad categorical term. It applies almost any body art that's created using solely black ink, but as you can imagine, a lot can be done with this versatile and striking color.</p>
+
+        <div *ngIf="showMoreInfo1" class="more-info-content ">
+            <h3>Tribal Tattoo</h3>
+            <p>Additional information about Tribal Tattoo:</p>
+            <div class="image-container">
+                <div class="image-wrapper ">
+                    <img src="https://th.bing.com/th/id/R.265632919c8a8ed1297850a860947b5c?rik=%2bjtGzBPxC0%2fehQ&riu=http%3a%2f%2ftattooviral.com%2fwp-content%2fuploads%2f2017%2f06%2ftattoo-trends-35-delightful-blackwork-tattoo-designs-redefining-the-art-of-tattooing-with-blac.jpg&ehk=%2fjWvGVStoAqeWAvExT56rg0vbD9iEBB6VlJiLWzLjJ4%3d&risl=&pid=ImgRaw&r=0" alt="Image 1">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.idR1cIy-2yMhIJpbyjaU5QHaJQ?pid=ImgDet&rs=1" alt="Image 2">
+                    <img src="https://i.pinimg.com/originals/ef/f8/7b/eff87b3e18b4ff94c0b956b31be9f7dc.jpg" alt="Image 3">
+                    <img src="https://i.pinimg.com/originals/aa/1c/a8/aa1ca8d6e9930ab987137c6b7b98df1f.jpg" alt="Image 4">
+                    <img src="https://i.pinimg.com/originals/74/f3/06/74f306f2c4ac84d313e0720c5c64212c.jpg" alt="Image 5">
+
+
+              
+                </div>
             </div>
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href="https://www.bing.com/images/search?q=Blackwork%20Tattoo&qs=n&form=QBIR&sp=-1&lq=0&pq=blackwork%20tattoo&sc=10-16&cvid=604D5485F6B842D3B3EE86DC3EC0A141&ghsh=0&ghacc=0&first=1">More Info</a></div>
         </div>
     </div>
+
+    <div class="col-md-4 mb-5">
+        <div class="card h-1">
+            <div class="card-body d-flex flex-column">
+                <h2 class="card-title">Neo Traditional Tattoo</h2>
+                <p class="card-text">Neo traditional, as the name implies, is an evolution of the traditional style. It features the core properties of its predecessor, like pronounced linework and extremely vibrant colors, but it also has an illustrative quality to it.</p>
+            </div>
+            <div class="card-footer mt-auto">
+                <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo2()">More Info</button>
+            </div>
+        </div>
+
+        <div *ngIf="showMoreInfo2" class="more-info-content">
+            <h3>Neo Traditional Tattoo</h3>
+            <p>Additional information about Neo Traditional Tattoo:</p>
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://i.pinimg.com/originals/8f/41/1e/8f411e6fb9414bf59bf015d73f9cc442.jpg" alt="Image 1">
+                    <img src="https://i.pinimg.com/originals/ea/da/23/eada23f2fe3a0d4bbd8fb1003cf8a80b.jpg" alt="Image 2">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.zzqYmr5zVs63UgsMAwAzUQAAAA?pid=ImgDet&rs=1" alt="Image 3">
+                    <img src="https://i.pinimg.com/originals/92/37/03/923703a9f475f82b769f83e2ee48a94e.jpg" alt="Image 4">
+                    <img src="https://inkppl.com/assets/php/files/122017/21827416_105197816859827_2795747195406516224_n.jpg" alt="Image 5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-5">
+        <div class="card h-1">
+            <div class="card-body d-flex flex-column">
+                <h3 class="card-title">Blackwork Tattoo</h3>
+                <p class="card-text">Stylistically speaking, blackwork is a very broad categorical term. It applies to almost any body art that's created using solely black ink, but as you can imagine, a lot can be done with this versatile and striking color.</p>
+            </div>
+            <div class="card-footer mt-auto">
+                <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo3()">More Info</button>
+            </div>
+        </div>
+    
+        <div *ngIf="showMoreInfo3" class="more-info-content "> 
+            <h3>Blackwork Tattoo</h3>
+            <p>Additional information about Blackwork Tattoo:</p>
+            <div class="image-container">
+                <div class="image-wrapper text-center">
+                    <img src="https://images.designtrends.com/wp-content/uploads/2016/03/21085118/Full-Sleeve-Tattoo-Design.jpg" alt="Image 1">
+                    <img src="https://i.pinimg.com/originals/21/10/b3/2110b3c6c7ee94dc82b6844dcddd6050.jpg" alt="Image 2">
+                    <img src="https://th.bing.com/th/id/R.3f64166c52c24ef57f257f875c8abf25?rik=7F5thb2Z9gq90A&riu=http%3a%2f%2fnextluxury.com%2fwp-content%2fuploads%2fcool-tribal-arm-sleeve-tattoos-for-guys.jpg&ehk=aKyS0mW2r5nvAM1G%2bR4PU9AO5aoYFyNSp%2bB7pBHKk2I%3d&risl=&pid=ImgRaw&r=0" alt="Image 3">
+                    <img src="https://i.pinimg.com/736x/09/8d/de/098ddec3eb00a32d107b1b144001e4c6.jpg" alt="Image 4">
+                    <img src="https://www.askideas.com/media/46/Red-Ink-Hibiscus-With-Tribal-Design-Tattoo-On-Left-Half-Sleeve.jpg" alt="Image 5">
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>

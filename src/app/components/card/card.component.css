@@ -1,0 +1,39 @@
+
+
+
+
+.image-container {
+  display: flex; /* Use flexbox for horizontal layout */
+  
+  flex-wrap: wrap; /* Wrap the images to the next line if they exceed the container width */
+}
+
+
+.image-container img {
+  max-width: 100%; /* Ensure images don't exceed the container's width */
+  height: 250px; /* Maintain aspect ratio */
+  margin: 10px; /* Add some spacing between images */
+  
+}
+
+
+
+.image-wrapper {
+  display: flex; /* Use flexbox for horizontal layout */
+  margin: -5px;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

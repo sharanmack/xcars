@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +6,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  showMoreInfo1 = false;
+  showMoreInfo2 = false;
+  showMoreInfo3 = false;
 
-  
+  toggleMoreInfo1() {
+    this.showMoreInfo1 = !this.showMoreInfo1;
+  }
+
+  toggleMoreInfo2() {
+    this.showMoreInfo2 = !this.showMoreInfo2;
+  }
+
+  toggleMoreInfo3() {
+    this.showMoreInfo3 = !this.showMoreInfo3;
+  }
 }
