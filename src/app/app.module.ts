@@ -32,9 +32,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     ContactComponent,
     AboutComponent,
-
-
-
+    
+    
  
   ],
   imports: [
@@ -45,4 +44,8 @@ import { AboutComponent } from './about/about.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
    

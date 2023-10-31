@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  
   showMoreInfo1 = false;
   showMoreInfo2 = false;
   showMoreInfo3 = false;

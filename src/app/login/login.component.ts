@@ -19,9 +19,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  gotonext() {
-    this.router.navigate(['/card']); // Use the route path defined in app-routing.module.ts
+  login() {
+   
+    const isAuthenticated = true;
+
+    if (isAuthenticated) {
+    
+      const confirmed = window.confirm('Successfully logged in! Click OK to go to the home page.');
+
+      if (confirmed) {
+        
+        this.router.navigate(['/about']);
+      }
+    }
   }
 }
+

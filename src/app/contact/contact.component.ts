@@ -19,27 +19,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+
+
+
+  showAlert() {
+    alert('Alert: Your message has been submitted successfully!');
+  }
+
+  
   showMessage: boolean = false;
-  ok = "none"
 
   submitForm() {
   
     this.showMessage = true;
   }
-  
 
   closeModal() {
     this.showMessage = false;
   }
-
-
-  popup(){
-    this.ok = "block";
-    console.log(
-      'uhjuihjui'
-    );
-    
-
-  }
-  
 }

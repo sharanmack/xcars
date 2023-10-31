@@ -28,17 +28,17 @@
             <label for="subject">Subject</label>
             <textarea id="subject" class="form-control" placeholder="Write something.." style="height:170px"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-primary" type="submit" showAlert()>Submit</button>
         </form>
       </div>
     </div>
   </div>
-   -->
+  
 
+ -->
 
-
-
-   <div class="container">
+ <app-navbar></app-navbar>
+    <div class="container">
     <div class="text-center">
       <h1>Contact Us</h1>
     </div>
@@ -51,11 +51,11 @@
         <form (ngSubmit)="submitForm()">
           <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="text" id="fname" class="form-control" placeholder="Your name.." />
+            <input type="text" id="fname" class="form-control" placeholder="Your name.." required/>
           </div>
           <div class="form-group">
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" class="form-control" placeholder="Your last name.." />
+            <input type="text" id="lname" class="form-control" placeholder="Your last name.." required/>
           </div>
           <div class="form-group">
             <label for="country">Country</label>
@@ -65,34 +65,60 @@
               <option value="India">USA</option>
             </select>
           </div>
-          <div class="form-group">
+          
+  
+           <div class="form-group">
             <label for="subject">Subject</label>
             <textarea id="subject" class="form-control" placeholder="Write something.." style="height: 170px"></textarea>
           </div>
-  
-          <button class="btn btn-primary" type="submit">Submit</button>
+          
+          <button id="submitButton" class="btn btn-primary" type="button" (click)="showAlert()">Submit</button>
+           
         </form>
+
+
+   
+    <br>
+
+
+
+
+
+
+
+
+    <div class="d-flex align-items-center">
+      <a href="https://www.facebook.com/sharan.mack?mibextid=LQQJ4d" class="box me-2 selectio">
+        <span class="fab fa-facebook-f mb-2"></span>
+        <p class="mb-0">Facebook</p>
+      </a>
+      <a href="https://www.google.co.in/webhp" class="box me-2">
+        <span class="fab fa-google mb-2"></span>
+        <p class="mb-0">Instagram</p>
+      </a>
+      <a href="https://www.google.co.in/webhp" class="box me-2">
+        <span class="far fa-envelope mb-2"></span>
+        <p class="mb-0">Email</p>
+      </a>
+    </div>
+    
+          
       </div>
     </div>
-  </div>
+  </div>  
   
-  <!-- Modal for displaying the popup message -->
-  <div class="modal" [ngClass]="{ 'show': showMessage }">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Thank You!</h5>
-          <button type="button" class="close" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Your message has been submitted successfully.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="closeModal()">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
   
