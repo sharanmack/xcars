@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+
+
+
+
   
   showMoreInfo1 = false;
   showMoreInfo2 = false;
@@ -22,4 +26,19 @@ export class CardComponent {
   toggleMoreInfo3() {
     this.showMoreInfo3 = !this.showMoreInfo3;
   }
+
+
+
+
+
+
+  isDataUploadComponentOpen: boolean = false;
+
+  openDataUploadComponent() {
+    this.isDataUploadComponentOpen = true;
+  }
 }
+
+
+
+

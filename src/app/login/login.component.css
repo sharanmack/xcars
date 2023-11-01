@@ -106,13 +106,13 @@
 
 /* login.component.css */
 .button-style {
-    background-color: #007bff; /* Change to your desired background color */
-    color: #fff; /* Text color */
+    background-color: #007bff;
+    color: #fff; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    /* Add any other styles you want */
-  }
+   
+}
   
 
 

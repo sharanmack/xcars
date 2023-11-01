@@ -1,0 +1,42 @@
+.custom-file-upload {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .custom-file-upload span {
+    display: block;
+  }
+  
+  .custom-file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+  }
+  
+
+
+
+
+
+
+
+
+  

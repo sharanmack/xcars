@@ -5,7 +5,7 @@
         <div class="card h-1">
             <div class="card-body d-flex flex-column">
                 <h2 class="card-title">SEDAN CARS</h2>
-                <p class="card-text">Tribal tattoos are the oldest in the world, dating back thousands of years. This style should actually be thought of as multiple styles or more so different traditions of tattooing from aboriginal communities all around the globe.</p>
+                <p class="card-text">A sedan is a four-door vehicle with a cargo area (trunk) that’s positioned behind the farthest rear pillars, often enclosed and separated from the passenger cabin. The enclosed trunk provides added privacy and security for your valuables.</p>
             </div>
             <div class="card-footer mt-auto">
                 <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo1()">More Info</button>
@@ -13,19 +13,25 @@
         </div>
 
         <div *ngIf="showMoreInfo1" class="more-info-content ">
-            <h3>SUV CARS</h3>
-            <p>Additional information about Tribal Tattoo:</p>
+            <h3>SEDAN CARS</h3>
+            <!-- <app-uplode></app-uplode> -->
+            <p>Additional information about SEDAN CARS:</p>
             <div class="image-container">
-                <div class="image-wrapper ">
-                    <img src="https://th.bing.com/th/id/R.265632919c8a8ed1297850a860947b5c?rik=%2bjtGzBPxC0%2fehQ&riu=http%3a%2f%2ftattooviral.com%2fwp-content%2fuploads%2f2017%2f06%2ftattoo-trends-35-delightful-blackwork-tattoo-designs-redefining-the-art-of-tattooing-with-blac.jpg&ehk=%2fjWvGVStoAqeWAvExT56rg0vbD9iEBB6VlJiLWzLjJ4%3d&risl=&pid=ImgRaw&r=0" alt="Image 1">
-                    <img src="https://tse1.mm.bing.net/th/id/OIP.idR1cIy-2yMhIJpbyjaU5QHaJQ?pid=ImgDet&rs=1" alt="Image 2">
-                    <img src="https://i.pinimg.com/originals/ef/f8/7b/eff87b3e18b4ff94c0b956b31be9f7dc.jpg" alt="Image 3">
-                    <img src="https://i.pinimg.com/originals/aa/1c/a8/aa1ca8d6e9930ab987137c6b7b98df1f.jpg" alt="Image 4">
-                    <img src="https://i.pinimg.com/originals/74/f3/06/74f306f2c4ac84d313e0720c5c64212c.jpg" alt="Image 5">
-
-
-              
+                <div class="image-wrapper  text-center">
+                    
+                    <img src="https://th.bing.com/th/id/R.73bfda1d25e8bc9fb94ecec4bfe28662?rik=8MGh09SXvm81nQ&riu=http%3a%2f%2fimages.unsplash.com%2fphoto-1485291571150-772bcfc10da5%3fcrop%3dentropy%26cs%3dtinysrgb%26fit%3dmax%26fm%3djpg%26ixid%3dMnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjI5MzM1ODU3%26ixlib%3drb-1.2.1%26q%3d80%26w%3d1080&ehk=Txomurd8oxZ5kDJMIZR7eb57LCcFIbMGXShZX9q1DYM%3d&risl=&pid=ImgRaw&r=0" alt="Image 1">
+                    <img src="https://img3.goodfon.com/wallpaper/nbig/a/79/avto-mercedes-benz-brabus-v12.jpg" alt="Image 2">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.b98DWH5PUYo8mezgs3dSOQHaEu?pid=ImgDet&w=1332&h=850&rs=1" alt="Image 3">
+                    <!-- <img src="https://tse1.mm.bing.net/th/id/OIP.tp9YUjR063IntfRgn_tabgHaE8?pid=ImgDet&w=1980&h=1320&rs=1" alt="Image 4">
+                    <img src="https://www.fab-design.com/files/fab/mercedes-s-coupe/FAB_ESQUIRE_002_mail.jpg" alt="Image 5">     -->
                 </div>
+                <div class="button">
+                    <button class="btn btn-primary" (click)="openDataUploadComponent()"> Upload Car Data</button>
+                </div>
+                
+                <app-datauplode *ngIf="isDataUploadComponentOpen"></app-datauplode>
+                
+            
             </div>
         </div>
     </div>
@@ -33,8 +39,8 @@
     <div class="col-md-4 mb-5">
         <div class="card h-1">
             <div class="card-body d-flex flex-column">
-                <h2 class="card-title">Neo Traditional Tattoo</h2>
-                <p class="card-text">Neo traditional, as the name implies, is an evolution of the traditional style. It features the core properties of its predecessor, like pronounced linework and extremely vibrant colors, but it also has an illustrative quality to it.</p>
+                <h2 class="card-title">Sport-Utility Vehicle</h2>
+                <p class="card-text">SUVs also have raised ground clearance that makes getting in and out of the cabin and driving over rugged terrain easier.Their rugged body-on-frame platform and ideal type of vehicle for off-roading and driving in harsh weather conditions.</p>
             </div>
             <div class="card-footer mt-auto">
                 <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo2()">More Info</button>
@@ -47,8 +53,8 @@
     <div class="col-md-4 mb-5">
         <div class="card h-1">
             <div class="card-body d-flex flex-column">
-                <h3 class="card-title">Blackwork Tattoo</h3>
-                <p class="card-text">Stylistically speaking, blackwork is a very broad categorical term. It applies to almost any body art that's created using solely black ink, but as you can imagine, a lot can be done with this versatile and striking color.</p>
+                <h3 class="card-title">Pickup Truck</h3>
+                <p class="card-text">A pickup truck or pickup is a type of vehicle with an enclosed cab for passengers and an open cargo area with a tailgate (truck bed). In Australia and New Zealand, all varieties of pickup trucks are called utes, which is short for ‘utility vehicle’.</p>
             </div>
             <div class="card-footer mt-auto">
                 <button class="btn btn-primary btn-sm" (click)="toggleMoreInfo3()">More Info</button>
@@ -61,30 +67,49 @@
 
 
 <div *ngIf="showMoreInfo2" class="more-info-content">
-    <h3>Neo Traditional Tattoo</h3>
-    <p>Additional information about Neo Traditional Tattoo:</p>
+    <h3>Sport-Utility Vehicle (SUV)</h3>
+    <!-- <app-uplode></app-uplode> -->
+    <p>Additional information about Sport-Utility Vehicle (SUV):</p>
     <div class="image-container move">
         <div class="image-wrapper move">
-            <img src="https://i.pinimg.com/originals/8f/41/1e/8f411e6fb9414bf59bf015d73f9cc442.jpg" alt="Image 1">
-            <img src="https://i.pinimg.com/originals/ea/da/23/eada23f2fe3a0d4bbd8fb1003cf8a80b.jpg" alt="Image 2">
-            <img src="https://tse1.mm.bing.net/th/id/OIP.zzqYmr5zVs63UgsMAwAzUQAAAA?pid=ImgDet&rs=1" alt="Image 3">
-            <img src="https://i.pinimg.com/originals/92/37/03/923703a9f475f82b769f83e2ee48a94e.jpg" alt="Image 4">
-            <img src="https://inkppl.com/assets/php/files/122017/21827416_105197816859827_2795747195406516224_n.jpg" alt="Image 5">
+            <img src="https://www.wallpaperflare.com/static/315/545/111/range-rover-evoque-hamann-black-range-wallpaper.jpg" alt="Image 1">
+            <img src="https://files.hodoor.world/images/products/images-products-1-4152-232992824-landrover_rangerover_evoque_07.jpg" alt="Image 2">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.ZMZIR5H3xS9vvVU7Pozl6wAAAA?pid=ImgDet&rs=1" alt="Image 3">
+            <!-- <img src="https://th.bing.com/th/id/R.a82f776c5ccc814085758f6603e944f8?rik=qlPx72vHyeczlQ&riu=http%3a%2f%2fwww.carblogindia.com%2fwp-content%2fuploads%2f2016%2f12%2f2017-range-rover-evoque-india-ember-edition-rear-angle.jpg&ehk=6tLPvp2F1Z6rr%2fBjL7jBjjwM7uM6rGkRhiG%2f0ooUuuU%3d&risl=&pid=ImgRaw&r=0" alt="Image 4">
+            <img src="https://gaadiwaadi.com/wp-content/uploads/2016/12/2017-Range-Rover-Evoque-India-Launch-3.jpg" alt="Image 5"> -->
         </div>
+
+        <div class="button">
+            <button class="btn btn-primary" (click)="openDataUploadComponent()"> Upload Car Data</button>
+        </div>
+        
+        <app-datauplode *ngIf="isDataUploadComponentOpen"></app-datauplode>
+        
     </div>
 </div>
 
 
-<div *ngIf="showMoreInfo3" class="more-info-content "> 
-    <h3>Blackwork Tattoo</h3>
-    <p>Additional information about Blackwork Tattoo:</p>
+ <div *ngIf="showMoreInfo3" class="more-info-content "> 
+    <h3>Pickup Truck</h3>
+    <!-- <app-uplode></app-uplode> -->
+    <p>Additional information about Pickup Truck:</p>
     <div class="image-container">
         <div class="image-wrapper text-center">
-            <img src="https://images.designtrends.com/wp-content/uploads/2016/03/21085118/Full-Sleeve-Tattoo-Design.jpg" alt="Image 1">
-            <img src="https://i.pinimg.com/originals/21/10/b3/2110b3c6c7ee94dc82b6844dcddd6050.jpg" alt="Image 2">
-            <img src="https://th.bing.com/th/id/R.3f64166c52c24ef57f257f875c8abf25?rik=7F5thb2Z9gq90A&riu=http%3a%2f%2fnextluxury.com%2fwp-content%2fuploads%2fcool-tribal-arm-sleeve-tattoos-for-guys.jpg&ehk=aKyS0mW2r5nvAM1G%2bR4PU9AO5aoYFyNSp%2bB7pBHKk2I%3d&risl=&pid=ImgRaw&r=0" alt="Image 3">
-            <img src="https://i.pinimg.com/736x/09/8d/de/098ddec3eb00a32d107b1b144001e4c6.jpg" alt="Image 4">
-            <img src="https://www.askideas.com/media/46/Red-Ink-Hibiscus-With-Tribal-Design-Tattoo-On-Left-Half-Sleeve.jpg" alt="Image 5">
+            <img src="https://c1.wallpaperflare.com/preview/971/170/559/car-truck-wheels-tyres.jpg" alt="Image 1">
+            <!-- <img src="https://i.pinimg.com/originals/00/7c/7e/007c7e564b48af71bf3ab1051c18bc21.jpg" alt="Image 2"> -->
+            <img src="https://wallpaperaccess.com/full/1633459.jpg" alt="Image 3">
+            <img src="https://wallpapercave.com/wp/wp7445761.jpg" alt="Image 4">
+            <!-- <img src="https://i.pinimg.com/236x/97/2a/1f/972a1ffd4bde3999f9d90091068bb581.jpg" alt="Image 5"> -->
         </div>
+        <div class="button">
+            <button class="btn btn-primary" (click)="openDataUploadComponent()"> Upload Car Data</button>
+        </div>
+        
+        <app-datauplode *ngIf="isDataUploadComponentOpen"></app-datauplode>
     </div>
-</div>
+</div> 
+
+
+
+
+
