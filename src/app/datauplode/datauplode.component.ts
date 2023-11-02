@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-@Component({
+@Component(
+  {
   selector: 'app-datauplode',
   templateUrl: './datauplode.component.html',
   styleUrls: ['./datauplode.component.css']
@@ -10,29 +11,31 @@ export class DatauplodeComponent {
     name: '',
     model: '',
     price: 0,
+    kilometre:'',
     contactDetails: ''
   };
-  msg: string='';
-  url: string='';
+  msg: string = '';
+  urls: string[] = []; // Use an array to store multiple selected image URLs
+  submitted: boolean = false;
+  selectedFiles: File[] = []; // Use an array to store multiple selected files
 
   submitForm() {
-    // You can perform any validation or data processing here before storing the data.
-    // For simplicity, we'll just display the entered data.
     this.msg = 'Form submitted!';
+    this.submitted = true;
   }
 
-  selectFile(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      // Handle the selected file here (e.g., upload it to a server, or display it).
-      // For simplicity, we'll just display the image file.
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.url = e.target.result;
-      };
-      reader.readAsDataURL(file);
+  selectFiles(event: any) {
+    this.selectedFiles = event.target.files;
+    this.urls = []; // Clear previous URLs
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      const file = this.selectedFiles[i];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
     }
-    
   }
 }
-

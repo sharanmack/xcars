@@ -28,15 +28,33 @@
   }
   
   .custom-file-upload:hover {
-    background-color: #0056b3; /* Change the background color on hover */
+    background-color: #0056b3; 
   }
   
 
 
 
+  .side-by-side-container {
+    display: flex;
+    justify-content: right;
+  }
+  
+  .car-info {
+    width: 45%; 
+  }
+  
+  .selected-image {
+    width: 45%; 
+    text-align: center; 
+  }
+  
 
 
-
-
+  .selected-image img {
+    max-width: 150px; 
+    max-height: 150px;
+    margin: 5px;       
+  }
+  
 
   

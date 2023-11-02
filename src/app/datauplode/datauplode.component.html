@@ -10,6 +10,10 @@
         <input type="text" id="carModel" name="carModel" class="form-control" required [(ngModel)]="car.model">
       </div>
       <div class="form-group">
+        <h4> <label for="carPrice">kilometre</label></h4>
+         <input type="number" id="carkilometre" name="carkilometre" class="form-control" required [(ngModel)]="car.kilometre">
+       </div>
+      <div class="form-group">
        <h4> <label for="carPrice">Price</label></h4>
         <input type="number" id="carPrice" name="carPrice" class="form-control" required [(ngModel)]="car.price">
       </div>
@@ -18,17 +22,52 @@
         <textarea id="contactDetails" name="contactDetails" class="form-control" required [(ngModel)]="car.contactDetails"></textarea>
       </div>
     <br>
+      
 
-    <div style="text-align: center">
-        <div [innerHtml]="msg" *ngIf="msg" style="color: red;"></div>
-        <div><img [src]="url" *ngIf="url"></div>
-        <p class="custom-file-upload">
-          <span>Choose File to upload images</span>
-          <input type="file" (change)="selectFile($event)">
-        </p>
-      </div>
+      <p class="custom-file-upload">
+        <span> Upload Images</span>
+        <input type="file" (change)="selectFiles($event)" multiple>
+      </p>
       <br>
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div style="text-align: center">
+    <button type="submit" class="btn btn-primary">Submit</button></div>
     </form>
-  </div>
+    
+   
+
+
+  
+    <div class="side-by-side-container" *ngIf="submitted">
+      <div class="car-info">
+        <h2>Car Information</h2>
+        <table>
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td>{{ car.name }}</td>
+          </tr>
+          <tr>
+            <td><strong>Model:</strong></td>
+            <td>{{ car.model }}</td>
+          </tr>
+          <tr>
+            <td><strong>kilometre:</strong></td>
+            <td>{{ car.kilometre }}</td>
+          </tr>
+          <tr>
+            <td><strong>Price:</strong></td>
+            <td>{{ car.price }}</td>
+          </tr>
+          <tr>
+            <td><strong>More Details:</strong></td>
+            <td>{{ car.contactDetails }}</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="selected-image">
+        <h2>Selected Images</h2>
+        <div *ngFor="let imgUrl of urls">
+          <img [src]="imgUrl" alt="Selected Image" />
+        </div>
+      </div>
