@@ -72,7 +72,13 @@
             <textarea id="subject" class="form-control" placeholder="Write something.." style="height: 170px"></textarea>
           </div>
           
-          <button id="submitButton" class="btn btn-primary" type="button" (click)="showAlert()">Submit</button>
+          <div *ngIf="showMessage" class="center-message">
+            <p>{{ message }}</p>
+            <button (click)="closeModal()">Close</button>
+          </div>
+          
+          <button id="submitButton" class="btn btn-primary" type="button" (click)="submitForm()">Submit</button>
+          
            
         </form>
 

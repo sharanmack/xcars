@@ -21,16 +21,10 @@ import { Component } from '@angular/core';
 export class ContactComponent {
 
 
-
-  showAlert() {
-    alert('Alert: Your message has been submitted successfully!');
-  }
-
-  
+  message: string = 'Alert: Your message has been submitted successfully!';
   showMessage: boolean = false;
 
   submitForm() {
-  
     this.showMessage = true;
   }
 

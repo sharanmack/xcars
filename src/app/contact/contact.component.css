@@ -21,8 +21,62 @@
     font-size: 29px;
   }
   
-  /* Optional: Add margin to separate buttons */
+
   .box + .box {
     margin-left: 20px;
   }
   
+
+
+
+.center-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.center-message p {
+  font-size: 18px; /* Adjust the font size as needed */
+  margin: 0;
+}
+
+.center-message button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px; 
+}
+
+.center-message button:hover {
+  background: #0056b3; /* Adjust the hover color as needed */
+}
+
+
+.center-message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
