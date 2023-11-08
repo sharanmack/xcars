@@ -57,4 +57,36 @@
   }
   
 
-  
+
+
+.side-by-side-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-box {
+  flex: 5;
+  border: 3px solid #5e91ff;
+  padding: 30px;
+  background-color: #f7f7f7;
+  margin-right: 30px; 
+  max-width: 100%;
+}
+.info-box table tr {
+  border-bottom: 1px solid #ccc; 
+  margin-top: 10px;
+}
+
+.image-box {
+  flex: 1;
+  border: 3px solid #5e91ff;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.image-box img {
+  max-width: 100%;
+  height: auto;
+  margin: 5px;
+}
+

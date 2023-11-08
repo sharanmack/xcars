@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'about', component: CardComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'contact', component: ContactComponent },
+    { path: 'contact', component: ContactComponent },
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
