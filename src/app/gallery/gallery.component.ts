@@ -20,7 +20,7 @@ export class GalleryComponent {
  'https://th.bing.com/th/id/R.2628e6ed808c0e4c47685906ea0765f1?rik=hucK%2buaKrFcmeg&riu=http%3a%2f%2fimg.modifiedcartrader.com%2fuploaded%2fL%2f2012%2f04%2fChevrolet-Moment-Camaro-Camaro-Type-II-SS-for-sale-custom-25571-679321.jpg&ehk=UTP%2f%2fYX50NvAeSgbz6x65gJg1L%2bImSEnD8jeB6XiUAs%3d&risl=&pid=ImgRaw&r=0',
   ];
   
-  currentImageIndexLeft = 0;
+  currentImageIndexLeft =0;
   currentImageIndexRight = 1;
   currentImageUrlLeft = this.images[this.currentImageIndexLeft];
   currentImageUrlRight = this.images[this.currentImageIndexRight];
@@ -32,7 +32,7 @@ export class GalleryComponent {
   changeImage(): void {
     this.currentImageIndexLeft = (this.currentImageIndexLeft + 1) % this.images.length;
     this.currentImageUrlLeft = this.images[this.currentImageIndexLeft];
-
+ 
     this.currentImageIndexRight = (this.currentImageIndexRight + 1) % this.images.length;
     this.currentImageUrlRight = this.images[this.currentImageIndexRight];
   }

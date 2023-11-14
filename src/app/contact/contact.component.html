@@ -33,84 +33,82 @@
       </div>
     </div>
   </div>
-  
-
  -->
+
  <app-navbar></app-navbar>
-    <div class="container">
+
+<div class="container">
     <div class="text-center">
-      <h1>Contact Us</h1>
+        <h1>Contact Us</h1>
     </div>
+
     <div class="row">
-      <div class="col-md-6">
-        <img src="https://pbs.twimg.com/media/FsnG4-dWAAARav4.jpg" class="img-fluid" alt="Tattoo Image" width="550" height="20">
-    </div>
-    
-      <div class="col-md-6">
-        <form (ngSubmit)="submitForm()">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" class="form-control" placeholder="Your name.." required/>
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" class="form-control" placeholder="Your last name.." required/>
-          </div>
-          <div class="form-group">
-            <label for="country">Country</label>
-            <select id="country" class="form-control">
-              <option value="australia">India</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="India">USA</option>
-            </select>
-          </div>
-          
-  
-           <div class="form-group">
-            <label for="subject">Subject</label>
-            <textarea id="subject" class="form-control" placeholder="Write something.." style="height: 170px"></textarea>
-          </div>
-          
-          <div *ngIf="showMessage" class="center-message">
-            <p>{{ message }}</p>
-            <button (click)="closeModal()">Close</button>
-          </div>
-          
-          <button id="submitButton" class="btn btn-primary" type="button" (click)="submitForm()">Submit</button>
-          
-           
-        </form>
-    <br>
+        <div class="col-md-6">
+            <img src="https://pbs.twimg.com/media/FsnG4-dWAAARav4.jpg" class="img-fluid" alt="Tattoo Image" width="550" height="20">
+        </div>
 
-    <div class="d-flex align-items-center">
-      <a href="https://www.facebook.com/sharan.mack?mibextid=LQQJ4d" class="box me-2 selectio">
-        <span class="fab fa-facebook-f mb-2"></span>
-        <p class="mb-0">Facebook</p>
-      </a>
-      <a href="https://instagram.com/sharanm_a_c_k?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr" class="box me-2">
-        <span class="fab fa-instagram mb-2"></span>
-        <p class="mb-0">Instagram</p>
-      </a>
-      
-      <a href="mailto:sharanmack06@gmail.com" class="box me-2">
-        <span class="far fa-envelope mb-2"></span>
-        <p class="mb-0">Email</p>
-      </a>
-      
-    </div>
-    
-          
-      </div>
-    </div>
-  </div>  
-  
+        <div class="col-md-6">
+            <form (ngSubmit)="submitForm()">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" class="form-control" placeholder="Your name.." required/>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" class="form-control" placeholder="Your last name.." required/>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" class="form-control">
+                        <option value="australia">India</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="India">USA</option>
+                    </select>
+                </div>
 
-  <div class="card-body d-flex justify-content-center align-items-center" id="youtube">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" class="form-control" placeholder="Write something.." style="height: 170px"></textarea>
+                </div>
+                 <br>
+                <div *ngIf="showMessage" class="center-message">
+                    <p>{{ message }}</p>
+                    <button (click)="closeModal()">Close</button>
+                </div>
+
+                <button id="submitButton" class="btn btn-primary" type="button" (click)="submitForm()">Submit</button>
+
+            </form>
+
+            <br>
+
+            <div class="d-flex align-items-center">
+                <a href="https://www.facebook.com/sharan.mack?mibextid=LQQJ4d" class="box me-2 selectio">
+                    <span class="fab fa-facebook-f mb-2"></span>
+                    <p class="mb-0">Facebook</p>
+                </a>
+                <a href="https://instagram.com/sharanm_a_c_k?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr" class="box me-2">
+                    <span class="fab fa-instagram mb-2"></span>
+                    <p class="mb-0">Instagram</p>
+                </a>
+
+                <a href="mailto:sharanmack06@gmail.com" class="box me-2">
+                    <span class="far fa-envelope mb-2"></span>
+                    <p class="mb-0">Email</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="card-body d-flex justify-content-center align-items-center" id="youtube">
     <p class="text-white m-0" style="font-size: x-large; text-align: center;">
         <a href="https://youtube.com/shorts/37wGvxfFi-c?si=9hUjXYddYqNhaAO9">
             <a href="https://youtube.com/shorts/37wGvxfFi-c?si=9hUjXYddYqNhaAO9">
                 <img class="img=img-fluid rounded mb-4 mb-lg-0" src="https://tse3.mm.bing.net/th/id/OIP.GnxgqCSCPN-dGy5uzP_xLQHaGc?pid=ImgDet&rs=1" alt="YouTube Logo" width="150" height="120">
             </a>
         </a>
-        <br> 
-</div>  
+        <br>
+    </p>
+</div>
