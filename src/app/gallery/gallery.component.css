@@ -1,0 +1,5 @@
+.full-page-image {
+    width: 350vw;
+    height: 100vh;
+    object-fit: cover;
+}

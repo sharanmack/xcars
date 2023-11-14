@@ -8,7 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { OffcanvasComponent } from './offcanvas/offcanvas.component';
+
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 
 import { FormsModule } from '@angular/forms';
 import { DatauplodeComponent } from './datauplode/datauplode.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 
@@ -30,12 +31,12 @@ import { DatauplodeComponent } from './datauplode/datauplode.component';
     IntroComponent,
     CardComponent,
     FooterComponent,
-    OffcanvasComponent,
     LoginComponent,
     HomeComponent,
     ContactComponent,
     AboutComponent,
     DatauplodeComponent,
+    GalleryComponent,
     
     
  

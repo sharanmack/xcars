@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OffcanvasComponent } from './offcanvas.component';
+import { GalleryComponent } from './gallery.component';
 
-describe('OffcanvasComponent', () => {
-  let component: OffcanvasComponent;
-  let fixture: ComponentFixture<OffcanvasComponent>;
+describe('GalleryComponent', () => {
+  let component: GalleryComponent;
+  let fixture: ComponentFixture<GalleryComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [OffcanvasComponent]
+      declarations: [GalleryComponent]
     });
-    fixture = TestBed.createComponent(OffcanvasComponent);
+    fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
