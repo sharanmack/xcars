@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  
 
   message: string = 'Alert: Your message has been submitted successfully!';
   showMessage: boolean = false;
