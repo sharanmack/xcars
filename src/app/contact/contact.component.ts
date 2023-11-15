@@ -1,7 +1,48 @@
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-contact',
+//   templateUrl: './contact.component.html',
+//   styleUrls: ['./contact.component.css']
+// })
+// export class ContactComponent {
+// // contact.component.ts
+
+
+
+
+//   onSubmit() {
+//     const userName = (<HTMLInputElement>document.getElementById('Name')).value;
+//     const phone = (<HTMLInputElement>document.getElementById('Phone')).value;
+//     const email = (<HTMLInputElement>document.getElementById('Email')).value;
+
+//     const messageBody = `Name ${userName}<br/> Phone ${phone}<br/> Email ${email}`;
+
+//     (window as any).Email.send({
+//       Host: "smtp.elasticemail.com",
+//       Username: "sharanmack05@icloud.com",
+//       Password: "D4529334515FE10C59B2216F2418BDBA119A",
+//       To: 'sharanmack05@icloud.com',
+//       From: "sharanmack06@gmail.com",
+//       Subject: "This is the subject",
+//       Body: messageBody
+//     }).then(
+//       (message: any) => { 
+//         console.log("Email sending response:", message);
+  
+//         if (message === 'OK') {
+//           alert("Data submitted successfully!");
+//         } else {
+//           alert("Error submitting data.");
+//         }
+//       }
+//     );
+//     }
+//   }
+
 
 
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -9,63 +50,22 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
-  
+  onSubmit() {
 
-  message: string = 'Alert: Your message has been submitted successfully!';
-  showMessage: boolean = false;
+    const userName = (<HTMLInputElement>document.getElementById('Name')).value;
+    const phone = (<HTMLInputElement>document.getElementById('Phone')).value;
+    const email = (<HTMLInputElement>document.getElementById('Email')).value;
 
-  submitForm() {
-    this.showMessage = true;
-  }
+   
+    const messageBody = `Name: ${userName}\nPhone: ${phone}\nEmail: ${email}`;
 
-  closeModal() {
-    this.showMessage = false;
+   
+    const isSubmissionSuccessful = true;
+
+    if (isSubmissionSuccessful) {
+      alert('Data submitted successfully!');
+    } else {
+      alert('Error submitting data.');
+    }
   }
 }
-
-
-
-
-
-
-// import { Component } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// @Component({
-//   selector: 'app-contact',
-//   templateUrl: './contact.component.html',
-//   styleUrls: ['./contact.component.css']
-// })
-// export class ContactComponent {
-//   message: string = '';
-//   showMessage: boolean = false;
-
-//   constructor(private http: HttpClient) {}
-
-//   submitForm() {
-//     const emailData = {
-//       to: 'sharanmack06@gmail.com', 
-//       subject: 'Contact Us Form Submission',
-//       message: 'First Name: John\nLast Name: Doe\nCountry: USA\nSubject: Message Content',
-//     };
-
-//     this.http.post('https://smtpjs.com/v3/smtp.js', emailData).subscribe(
-//       (response: any) => {
-//         if (response.success) {
-//           this.message = 'Your message has been submitted successfully!';
-//         } else {
-//           this.message = 'Email sending failed. Please try again later.';
-//         }
-//         this.showMessage = true;
-//       },
-//       (error) => {
-//         console.error('Error:', error);
-//         this.message = 'An error occurred while sending the email.';
-//         this.showMessage = true;
-//       }
-//     );
-//   }
-
-//   closeModal() {
-//     this.showMessage = false;
-//   }
-// }
