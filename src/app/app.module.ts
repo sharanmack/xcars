@@ -21,6 +21,7 @@ import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
 import { DatauplodeComponent } from './datauplode/datauplode.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -40,6 +41,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     AboutComponent,
     DatauplodeComponent,
     GalleryComponent,
+    RegisterComponent,
     
     
  

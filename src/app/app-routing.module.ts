@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CardComponent } from './components/card/card.component';
 import { ContactComponent } from './contact/contact.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { RegisterComponent } from './register/register.component';
 
 // const routes: Routes = [
 //   // { path: 'card', component: CardComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
     { path: 'contact', component: ContactComponent },
     {path :'gallery',component:GalleryComponent},
+    {path : 'register',component:RegisterComponent}
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

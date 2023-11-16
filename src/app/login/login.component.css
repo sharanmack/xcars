@@ -10,7 +10,16 @@
 .container {
     margin: 50px auto;
 }
-
+.button-stylee{
+    width: 70px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff; 
+    border: none;
+    padding: 10px 6px;
+    
+   
+}
 .body {
     position: relative;
     width: 720px;
