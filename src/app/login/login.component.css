@@ -65,24 +65,25 @@
     border: 2px solid transparent;
     text-decoration: none;
     color: #615f5fdd;
+    margin-top: 50px;
 }
 
-.box:active,
+/* .box:active,
 .box:visited {
     border: 2px solid #ee82ee;
-}
+} */
 
-.box:hover {
+/* .box:hover {
     border: 2px solid #ee82ee;
-}
+} */
 
-.btn.btn-primary {
+/* .btn.btn-primary {
     background-color: transparent;
     color: #ee82ee;
     border: 0px;
     padding: 0;
     font-size: 14px;
-}
+} */
 
 .btn.btn-primary .fas.fa-chevron-right {
     font-size: 12px;
@@ -138,7 +139,30 @@
 
 
 
+#inp{
+   width: 190px;
+   margin-bottom: 5px;
+   padding: 6px;
+}
 
+#err{
+    width: 190px;
+    padding: 4px;
+}
+
+#butt{
+    width: 190px;
+    padding: 6px;
+}
+
+#box{
+    margin-left: 90px;
+}
+
+#register {
+   display: flex;
+   margin-top: 50px;
+}
 
 
 
