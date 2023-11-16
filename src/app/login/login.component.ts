@@ -11,7 +11,7 @@ export class LoginComponent {
 
   constructor(private router: Router) { }
 
-  login() {
+  login(f:any) {
     const isAuthenticated = true;
 
     if (isAuthenticated) {
