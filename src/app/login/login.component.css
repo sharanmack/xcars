@@ -10,6 +10,8 @@
 .container {
     margin: 50px auto;
 }
+
+
 .button-stylee{
     width: 70px;
     height: 40px;
@@ -55,7 +57,7 @@
     font-size: 14px;
 }
 
-.container .box {
+.containerr .box {
     width: 100px;
     height: 100px;
     display: flex;
@@ -87,10 +89,6 @@
 
 .btn.btn-primary .fas.fa-chevron-right {
     font-size: 12px;
-}
-
-.footer .p-color {
-    color: #ee82ee;
 }
 
 .footer.text-muted {
@@ -162,10 +160,4 @@
 #register {
    display: flex;
    margin-top: 50px;
-}
-
-
-
-
-
-
+} 
