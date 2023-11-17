@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
- 
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 
@@ -16,38 +14,33 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent {
 
-  user = {
+  endpoint = '/register';
+  domain: string;
+  valid: boolean = true;
 
-    username: '',
-
-    email: '',
-
-    password: ''
-
-  };
-
- 
-
-  constructor(private router: Router) {}
-
- 
-
-  onSubmit() {
-
- 
-
-    alert('Your data is registered');
-
- 
-
- 
-
-    if (confirm('Do you want to go to the Login page?')) {
-
-      this.router.navigate(['/login']);
-
-    }
-
+  constructor(private router: Router, private http: HttpClient) {
+    this.domain = "http://localhost:3000"
   }
 
+ register(f:any){
+  const userData = {
+    phone: f.value.phone,
+    pass: f.value.pass,
+    naming : f.value.naming
+  };
+  console.log(userData);
+
+  this.http.post(`${this.domain}${this.endpoint}`, userData).subscribe(
+    (response: any) => {
+      alert("Your Data Is Registered")
+      if (confirm("Do you want to want to go to login page")){
+        this.router.navigate(['/login'])
+      }
+     console.log(response.message)
+    },
+    (error) => {
+      console.error('ERROR', error);
+    }
+  );
 }
+ }
