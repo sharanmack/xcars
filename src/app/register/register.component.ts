@@ -42,7 +42,7 @@ export class RegisterComponent {
 
  
 
-    if (confirm('Do you want to go to the Home page?')) {
+    if (confirm('Do you want to go to the Login page?')) {
 
       this.router.navigate(['/login']);
 

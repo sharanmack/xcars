@@ -16,7 +16,6 @@ export class GalleryComponent {
  'https://wallpaperaccess.com/full/124071.jpg',
  'https://wallpaper.dog/large/10809214.jpg',
  'https://tse3.mm.bing.net/th/id/OIP.M7zgOCIO42_ARjrhmrDD7AHaEF?pid=ImgDet&w=1272&h=703&rs=1',
- 'https://th.bing.com/th/id/R.2628e6ed808c0e4c47685906ea0765f1?rik=hucK%2buaKrFcmeg&riu=http%3a%2f%2fimg.modifiedcartrader.com%2fuploaded%2fL%2f2012%2f04%2fChevrolet-Moment-Camaro-Camaro-Type-II-SS-for-sale-custom-25571-679321.jpg&ehk=UTP%2f%2fYX50NvAeSgbz6x65gJg1L%2bImSEnD8jeB6XiUAs%3d&risl=&pid=ImgRaw&r=0',
   ];
   
   
@@ -26,7 +25,7 @@ export class GalleryComponent {
   currentImageUrlRight = this.images[this.currentImageIndexRight];
 
   ngOnInit(): void {
-    setInterval(() => this.changeImage(), 2900);
+    setInterval(() => this.changeImage(), 2955);
   }
 
   changeImage(): void {
@@ -38,12 +37,6 @@ export class GalleryComponent {
   }
   likes: number[] = Array(this.images.length).fill(0);
 
-  // likeImage(index: number): void {
-  //   this.likes[index]++;
-  // }
-
-
-
   comments: string[][] = Array(this.images.length).fill([]); 
 
   addComment(index: number): void {
@@ -51,13 +44,15 @@ export class GalleryComponent {
     this.comments[index].push(commentText);
   }
 
-  isLiked: boolean = false;
+
+  isLiked: boolean[] = Array(this.images.length).fill(false);
+
+
 
   likeImage(index: number): void {
     this.likes[index]++;
-    this.isLiked = true;
+    this.isLiked[index] = true;
   }
-
-
-  
 }
+  
+
