@@ -12,7 +12,8 @@ export class LoginComponent {
   
   endpoint = '/login';
   domain: string;
-  valid :boolean = true
+  
+  valid :boolean = true 
 
 
   constructor(private router: Router,private http: HttpClient) {
