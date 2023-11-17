@@ -13,7 +13,11 @@ export class LoginComponent {
 
   login(f:any) {
     const isAuthenticated = true;
-
+    const userData = {
+      phone: f.value.phone,
+      pass: f.value.pass
+    };
+    console.log(userData)
     if (isAuthenticated) {
       const confirmed = window.confirm('Successfully logged in! Click OK to go to the home page.');
 
@@ -22,6 +26,10 @@ export class LoginComponent {
       }
     }
   }
+
+
+
+
 
   showRegistrationForm() {
     this.showRegistration = true;
