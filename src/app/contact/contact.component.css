@@ -41,9 +41,26 @@
 }
 
 .btn-primary {
-  background-color: #0056b3;
+  background-color: #007bff;
 }
 
 .btn-primary:hover {
-  background-color: #004080;
+  background-color: #007bff;
 }
+
+
+
+  #icon-container {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    padding: 6px;
+    border: 1px solid #858585;
+    border-radius: 10px;
+  }
+
+  .card-body {
+    margin: 0 20px; 
+    text-align: center;
+  }
+

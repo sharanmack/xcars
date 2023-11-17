@@ -26,7 +26,7 @@ export class DatauplodeComponent {
   urls: string[] = [];
   submitted: boolean = false;
   selectedFiles: File[] = [];
-
+  isFormOpen: boolean = false;
   carData: CarData = {
     'Maruti Suzuki': ['Maruti Suzuki Alto', 'S-Presso', 'Celerio', 'Wagon R',' Swift', 'Dzire', 'Baleno', 'Vitara Brezza', 'Ertiga', 'XL6', 'Ciaz', 'S-Cross'],
     'Hyundai': ['Hyundai Grand i10','Hyundai Grand i10 Nios','Hyundai Elite i20','Hyundai i20 Active','Hyundai Aura','Hyundai Verna','Hyundai Creta','Hyundai Alcazar','Hyundai Venue','Hyundai Tucson','Hyundai Kona Electric'],
