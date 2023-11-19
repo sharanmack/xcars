@@ -23,6 +23,7 @@ import { DatauplodeComponent } from './datauplode/datauplode.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { RegisterComponent } from './register/register.component';
 
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 
 
 
@@ -49,7 +50,9 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
