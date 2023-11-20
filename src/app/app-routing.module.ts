@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
+import { WebappComponent } from './webapp/webapp.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CardComponent } from './components/card/card.component';
@@ -27,6 +27,7 @@ const routes: Routes = [
     {path :'gallery',component:GalleryComponent},
     {path : 'register',component:RegisterComponent},
     {path : 'uplodecar' , component:UplodecarComponent},
+    {path : 'webapp',component:WebappComponent}
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

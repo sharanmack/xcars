@@ -33,4 +33,28 @@ export class CardComponent {
   openDataUploadComponent() {
     this.isDataUploadComponentOpen = true;
   }
+
+  modalImageSrc: string | null = null;
+  modalCaption: string | null = null;
+
+  // openModal(): void {
+  //   const modal = document.getElementById("myModal");
+  //   modal!.style.display = "block";
+  //   const img = document.getElementById("myImg");
+  //   this.modalImageSrc = img ? img.getAttribute('src') : null;
+  //   this.modalCaption = img ? img.getAttribute('alt') : null;
+  // }
+
+  closeModal(): void {
+    const modal = document.getElementById("myModal");
+    modal!.style.display = "none";
+  }
+
+  openModal(imgSrc: string, imgAlt: string): void {
+    const modal = document.getElementById("myModal");
+    modal!.style.display = "block";
+
+    this.modalImageSrc = imgSrc;
+    this.modalCaption = imgAlt;
+}
 }
