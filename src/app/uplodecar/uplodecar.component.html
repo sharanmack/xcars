@@ -1,3 +1,5 @@
+
+<app-navbar></app-navbar>
 <div class="car-upload-form">
     <h2>Upload Car Information</h2>
     <form (ngSubmit)="submitForm()" #carForm="ngForm">
@@ -35,9 +37,10 @@
       
       
       <div class="form-group">
-        <h4> <label for="carPrice">kilometre</label></h4>
-         <input type="number" id="carkilometre" name="carkilometre" class="form-control" required [(ngModel)]="car.kilometre">
-       </div>
+        <h4><label for="carkilometre">Kilometre</label></h4>
+        <input type="number" id="carkilometre" name="carkilometre" class="form-control" required [(ngModel)]="car.kilometre">
+    </div>
+    
       <div class="form-group">
        <h4> <label for="carPrice">Price</label></h4>
         <input type="number" id="carPrice" name="carPrice" class="form-control" required [(ngModel)]="car.price">

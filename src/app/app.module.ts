@@ -19,11 +19,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 
 import { FormsModule } from '@angular/forms';
-import { DatauplodeComponent } from './datauplode/datauplode.component';
+
 import { GalleryComponent } from './gallery/gallery.component';
 import { RegisterComponent } from './register/register.component';
 
 import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { UplodecarComponent } from './uplodecar/uplodecar.component';
 
 
 
@@ -40,9 +41,10 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    DatauplodeComponent,
+
     GalleryComponent,
     RegisterComponent,
+    UplodecarComponent,
     
     
  

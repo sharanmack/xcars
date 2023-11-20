@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-
 type CarData = {
   [key: string]: string[];
 };
-
 @Component({
-  selector: 'app-datauplode',
-  templateUrl: './datauplode.component.html',
-  styleUrls: ['./datauplode.component.css']
+  selector: 'app-uplodecar',
+  templateUrl: './uplodecar.component.html',
+  styleUrls: ['./uplodecar.component.css']
 })
-export class DatauplodeComponent {
+export class UplodecarComponent {
   car = {
     name: '',
     model: '',
@@ -74,3 +72,5 @@ export class DatauplodeComponent {
   }
   
 }
+
+
