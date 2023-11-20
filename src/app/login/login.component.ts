@@ -1,37 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  showRegistration = false;
+export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  endpoint = '/login';
+  domain: string;
 
-  login(f:any) {
-    const isAuthenticated = true;
+  valid: boolean = true;
+
+  constructor(private router: Router, private http: HttpClient) {
+    this.domain = "http://localhost:3000"
+  }
+
+  ngOnInit(): void {}
+
+  showRegistrationForm() {}
+
+  login(f: any) {
     const userData = {
       phone: f.value.phone,
       pass: f.value.pass
     };
-    console.log(userData)
-    if (isAuthenticated) {
-      const confirmed = window.confirm('Successfully logged in! Click OK to go to the home page.');
+    console.log(userData);
 
-      if (confirmed) {
-        this.router.navigate(['/about']);
+    this.http.post(`${this.domain}${this.endpoint}`, userData).subscribe(
+      (response: any) => {
+        this.valid = response.userExists;
+        if (response.userExists) {
+          this.router.navigate(['/about']);
+        } else {
+          console.log("USER DOES NOT EXIST");
+        }
+      },
+      (error) => {
+        console.error('Login failed:', error);
+        alert("LOGIN FAILED")
       }
-    }
-  }
-
-
-
-
-
-  showRegistrationForm() {
-    this.showRegistration = true;
+    );
   }
 }

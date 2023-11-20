@@ -2,28 +2,69 @@
 
     <h2>Registration</h2>
 
-    <form (ngSubmit)="onSubmit()">
+    <form #f="ngForm" (ngSubmit)="register(f)">
 
-      <label for="username">Username:</label>
+      <div class="box">
 
-      <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    
+        <div class="pass" >
+          <input
+            type="text"
+            id="inp"
+            placeholder="Name"
+            name="naming"
+            ngModel
+            #naming="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': naming.touched && naming.invalid}"
+          >
+        </div>
+        <div class="alert alert-danger custom-error" *ngIf="naming.touched && naming.invalid" id="err">
+          Name is required
+        </div>
 
- 
+            <div class="phone">
+                <input
+                  type="text"
+                  id="inp"
+                  placeholder="Email"
+                  name="phone"
+                  ngModel
+                  #phone="ngModel"
+                  required
+                  class="form-control"
+                  [ngClass]="{'is-invalid': phone.touched && phone.invalid}"
 
-      <label for="email">Email:</label>
+                >
+              </div>
+              <div class="alert alert-danger custom-error" *ngIf="phone.touched && phone.invalid" id="err">
+                Email id is required
+              </div>
+              <div class="pass" >
+                <input
+                  type="password"
+                  id="inp"
+                  placeholder="Password"
+                  name="pass"
+                  ngModel
+                  #pass="ngModel"
+                  required
+                  class="form-control"
+                  [ngClass]="{'is-invalid': pass.touched && pass.invalid}"
+                >
+              </div>
+              <div class="alert alert-danger custom-error" *ngIf="pass.touched && pass.invalid" id="err">
+                Password is required
+              </div>
 
-      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+        <br>
+        <div class ="button" >
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid"  id="butt">  Register   </button>
+        </div>
 
- 
+        </div>
 
-      <label for="password">Password:</label>
-
-      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
-
- 
-
-      <button type="submit">Register</button>
-
-    </form>
+       </form>
 
   </div>
