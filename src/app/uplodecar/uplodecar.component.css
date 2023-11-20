@@ -1,146 +1,112 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .car-upload-form {
-    width: 50%;
-    margin: auto;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.car-upload-form {
+  width: 50%;
+  margin: auto;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 
 .custom-file-upload {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    margin-top: 10px; 
-  }
-  
-  .custom-file-upload input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .custom-file-upload span {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff; 
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .custom-file-upload:hover span {
-    background-color: #0056b3;
-  }
-  
-  .car-upload-form h2 {
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
 
+.custom-file-upload input[type=file] {
+  font-size: 0;
+}
 
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px; /* Add margin to separate the button from the file input */
+}
 
-
-
-
-
-
-
-  .custom-file-upload {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .custom-file-upload span {
-    display: block;
-  }
-  
-  .custom-file-upload input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #0056b3; 
-  }
-  
-
-
-
-  .side-by-side-container {
-    display: flex;
-    justify-content: right;
-  }
-  
-  .car-info {
-    width: 45%; 
-  }
-  
-  .selected-image {
-    width: 45%; 
-    text-align: center; 
-  }
-  
-
-
-  .selected-image img {
-    max-width: 150px; 
-    max-height: 150px;
-    margin: 5px;       
-  }
-  
-
-
+.btn-primary:hover {
+  background-color: #0056b3;
+}
 
 .side-by-side-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
-.info-box {
-  flex: 5;
-  border: 3px solid #5e91ff;
-  padding: 30px;
-  background-color: #f7f7f7;
-  margin-right: 30px; 
-  max-width: 100%;
-}
-.info-box table tr {
-  border-bottom: 1px solid #ccc; 
-  margin-top: 10px;
+.car-info,
+.selected-image {
+  width: 48%;
 }
 
+.info-box,
 .image-box {
-  flex: 1;
   border: 3px solid #5e91ff;
   padding: 10px;
   background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .image-box img {
   max-width: 100%;
   height: auto;
   margin: 5px;
+}
+
+.custom-file-upload {
+  position: relative;
+  overflow: hidden;
+}
+
+#fileUpload {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.btn-upload {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-upload:hover {
+  background-color: #2e3133;
 }
