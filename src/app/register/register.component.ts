@@ -13,7 +13,9 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class RegisterComponent {
-
+  goBack(): void {
+    window.history.back();
+  }
   endpoint = '/register';
   domain: string;
   valid: boolean = true;

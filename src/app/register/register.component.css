@@ -107,3 +107,21 @@
   }
 
  
+
+
+  .custom-go-back-btn {
+    background-color: #007bff; 
+    color: #ffffff;
+   
+  }
+  
+  .page-container {
+    position: relative;
+  }
+  
+  .go-back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+  

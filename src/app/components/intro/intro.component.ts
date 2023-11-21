@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css']
+ 
+
 })
 export class IntroComponent {
   images: string[] = [

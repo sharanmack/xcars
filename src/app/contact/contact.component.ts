@@ -49,6 +49,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  formData: any = {}; // Define formData object
+
+
+   
+
 
   onSubmit() {
 
@@ -59,7 +64,7 @@ export class ContactComponent {
    
     const messageBody = `Name: ${userName}\nPhone: ${phone}\nEmail: ${email}`;
 
-   
+    console.log('Form submitted:', this.formData);
     const isSubmissionSuccessful = true;
 
     if (isSubmissionSuccessful) {

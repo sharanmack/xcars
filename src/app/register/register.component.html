@@ -1,4 +1,5 @@
-<div class="registration-container">
+<div class="page-container">
+  <div class="registration-container">
 
     <h2>Registration</h2>
 
@@ -6,8 +7,7 @@
 
       <div class="box">
 
-    
-        <div class="pass" >
+        <div class="pass">
           <input
             type="text"
             id="inp"
@@ -24,47 +24,52 @@
           Name is required
         </div>
 
-            <div class="phone">
-                <input
-                  type="text"
-                  id="inp"
-                  placeholder="Email"
-                  name="phone"
-                  ngModel
-                  #phone="ngModel"
-                  required
-                  class="form-control"
-                  [ngClass]="{'is-invalid': phone.touched && phone.invalid}"
-
-                >
-              </div>
-              <div class="alert alert-danger custom-error" *ngIf="phone.touched && phone.invalid" id="err">
-                Email id is required
-              </div>
-              <div class="pass" >
-                <input
-                  type="password"
-                  id="inp"
-                  placeholder="Password"
-                  name="pass"
-                  ngModel
-                  #pass="ngModel"
-                  required
-                  class="form-control"
-                  [ngClass]="{'is-invalid': pass.touched && pass.invalid}"
-                >
-              </div>
-              <div class="alert alert-danger custom-error" *ngIf="pass.touched && pass.invalid" id="err">
-                Password is required
-              </div>
-
-        <br>
-        <div class ="button" >
-            <button class="btn btn-primary" type="submit" [disabled]="f.invalid"  id="butt">  Register   </button>
+        <div class="phone">
+          <input
+            type="text"
+            id="inp"
+            placeholder="Email"
+            name="phone"
+            ngModel
+            #phone="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': phone.touched && phone.invalid}"
+          >
+        </div>
+        <div class="alert alert-danger custom-error" *ngIf="phone.touched && phone.invalid" id="err">
+          Email id is required
         </div>
 
+        <div class="pass">
+          <input
+            type="password"
+            id="inp"
+            placeholder="Password"
+            name="pass"
+            ngModel
+            #pass="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': pass.touched && pass.invalid}"
+          >
+        </div>
+        <div class="alert alert-danger custom-error" *ngIf="pass.touched && pass.invalid" id="err">
+          Password is required
         </div>
 
-       </form>
+        <div class="button">
+          <button class="btn btn-primary" type="submit" [disabled]="f.invalid" id="butt">Register</button>
+        </div>
+
+      </div>
+
+    </form>
 
   </div>
+
+  <div class="go-back-button">
+    <button class="btn custom-go-back-btn" type="button" (click)="goBack()">Go Back</button>
+  </div>
+  
+</div>
