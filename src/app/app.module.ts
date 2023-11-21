@@ -54,6 +54,7 @@ import { UplodecarComponent } from './uplodecar/uplodecar.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    
 
   ],
   providers: [],

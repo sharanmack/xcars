@@ -1,72 +1,73 @@
-
 <app-navbar></app-navbar>
-<div class="car-upload-form">
+
+<div class="container">
+  <div class="car-upload-form">
     <h2>Upload Car Information</h2>
     <form (ngSubmit)="submitForm()" #carForm="ngForm">
+
       <div class="form-group">
-        <h4><label for="brand">Brand</label></h4>
+        <label for="brand">Brand</label>
         <select id="brand" name="brand" class="form-control" required [(ngModel)]="car.selectedBrand" (change)="onSelectBrand(car.selectedBrand)">
           <option value="" disabled selected>Select a brand</option>
           <option *ngFor="let brand of carNames" [value]="brand">{{ brand }}</option>
         </select>
       </div>
-      
+
       <div class="form-group">
-        <h4><label for="carName">Car Name</label></h4>
+        <label for="carName">Car Name</label>
         <select id="carName" name="carName" class="form-control" required [(ngModel)]="car.name">
           <option value="" disabled selected>Select a car name</option>
           <option *ngFor="let name of car.selectedCarNames" [value]="name">{{ name }}</option>
         </select>
       </div>
-      
-      
-      
+
       <div class="form-group">
-        <h4><label for="carModel"> Model</label></h4>
+        <label for="carModel">Model</label>
         <input type="text" id="carModel" name="carModel" class="form-control" required [(ngModel)]="car.model">
       </div>
-      
+
       <div class="form-group">
-        <h4><label for="fuelType">Fuel Type</label></h4>
+        <label for="fuelType">Fuel Type</label>
         <select id="fuelType" name="fuelType" class="form-control" required [(ngModel)]="car.fuelType">
           <option value="" disabled selected>Select fuel type</option>
           <option *ngFor="let type of fuelTypes" [value]="type">{{ type }}</option>
         </select>
       </div>
 
-      
-      
       <div class="form-group">
-        <h4><label for="carkilometre">Kilometre</label></h4>
+        <label for="carkilometre">Kilometre</label>
         <input type="number" id="carkilometre" name="carkilometre" class="form-control" required [(ngModel)]="car.kilometre">
-    </div>
-    
+      </div>
+
       <div class="form-group">
-       <h4> <label for="carPrice">Price</label></h4>
+        <label for="carPrice">Price</label>
         <input type="number" id="carPrice" name="carPrice" class="form-control" required [(ngModel)]="car.price">
       </div>
+
       <div class="form-group">
-        <h4><label for="contactDetails">More  Details</label></h4>
+        <label for="contactDetails">More Details</label>
         <textarea id="contactDetails" name="contactDetails" class="form-control" required [(ngModel)]="car.contactDetails"></textarea>
       </div>
 
-      
+     <div class="form-group custom-file-upload">
+  <label for="fileUpload">Upload Images</label>
+  <input type="file" id="fileUpload" (change)="selectFiles($event)" multiple>
+  <button type="button" class="btn btn-upload" (click)="fileUpload.click()">Choose File</button>
+</div>
 
-      <p class="custom-file-upload">
-        <span> Upload Images</span>
-        <input type="file" (change)="selectFiles($event)" multiple>
-      </p>
-      
-      
-      <div style="text-align: center">
-    <button type="submit" class="btn btn-primary">Submit</button></div>
+
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
     </form>
-    <div class="side-by-side-container" *ngIf="submitted">
-      <div class="car-info">
-        <h2>   Car 
-          Information</h2>
-        <div class="info-box">
-          <table>
+  </div>
+
+  <div class="side-by-side-container" *ngIf="submitted">
+    <div class="car-info">
+      <h2>Car Information</h2>
+      <div class="info-box">
+        <table>
             <tr>
               <td><strong>Brand:</strong></td>
               <td>{{ car.selectedBrand }}</td>
@@ -98,7 +99,7 @@
           </table>
         </div>
       </div>
-    
+  
       <div class="selected-image">
         <h2>Selected Images</h2>
         <div class="image-box">
@@ -108,4 +109,4 @@
         </div>
       </div>
     </div>
-    
+  </div>

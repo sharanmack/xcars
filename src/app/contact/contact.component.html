@@ -39,15 +39,16 @@
           <textarea class="form-control" id="MESSAGE" rows="3" placeholder="Type your message here" name="Message" [(ngModel)]="formData.Message"></textarea>
         </div>
 
+
         <div *ngIf="loading" class="text-center mt-2">
           <div class="spinner-border text-primary" role="status">      
           </div>
         </div>
+
       
         <button type="submit" class="btn btn-primary mt-2" [disabled]="contactForm.invalid">Submit</button>
       </form>
       
-    
       <div class="d-flex justify-content-center align-items-center mt-4" id="icon-container">
     
      

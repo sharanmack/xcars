@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+
   endpoint = '/sendemail';
   domain: string;
   loading = false;

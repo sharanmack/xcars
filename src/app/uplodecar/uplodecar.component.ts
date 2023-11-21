@@ -46,7 +46,7 @@ export class UplodecarComponent {
     this.msg = 'Form submitted!';
     this.submitted = true;
   }
-
+  fileUpload: any;
   selectFiles(event: any) {
     this.selectedFiles = event.target.files;
     this.urls = [];
