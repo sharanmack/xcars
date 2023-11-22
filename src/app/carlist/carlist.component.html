@@ -1,1 +1,3 @@
-<p>carlist works!</p>
+<div *ngFor="let file of files">
+    <img [src]="getFilePath(file)" alt="{{ file.filename }}" />
+  </div>
