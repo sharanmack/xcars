@@ -2,3 +2,9 @@
   <input type="file" (change)="onFileSelected($event)" />
   <button type="submit">Upload</button>
 </form>
+
+<button (click)="showfile()">GET</button>
+
+<div *ngFor="let imageUrl of imageUrls">
+  <img [src]="imageUrl" alt="Image" />
+</div>

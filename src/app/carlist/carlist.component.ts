@@ -8,22 +8,32 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CarlistComponent {
 
-  files: any[] = [];
+  imageUrls: string[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // Adjust the URL based on your backend server configuration
-    const apiUrl = 'http://localhost:3000/files';
+   
 
-    this.http.get(apiUrl).subscribe(
-      (response: Object) => { // Update the type here to Object or any
-        this.files = response as any[]; // You can use 'as any[]' to explicitly cast the response to an array
-      },
-      (error) => {
-        console.error('Error retrieving files', error);
-      }
-    );
+    
+      this.http.get('http://localhost:3000/files').subscribe(
+        (response: any[] | any) => {
+          console.log(response);
+    
+          if (Array.isArray(response)) {
+            this.imageUrls = response.map(file => {
+              return `http://localhost:3000/uploads/${file.filename}`;
+            });
+          } else {
+            this.imageUrls = [`http://localhost:3000/${response.path}/${response.filename}`];
+          }
+        },
+        (error) => {
+          console.error('Error retrieving files', error);
+        }
+      );
+   
+    
   }
 
   getFilePath(file: any): string {

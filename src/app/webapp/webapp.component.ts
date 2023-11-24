@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class WebappComponent {
 
   selectedFile: File | null = null;
+  imageUrls: string[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -19,8 +20,7 @@ export class WebappComponent {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
-
-      // Adjust the URL based on your backend server configuration
+      console.log(this.selectedFile)
       const apiUrl = 'http://localhost:3000/upload';
 
       this.http.post(apiUrl, formData).subscribe(
@@ -35,5 +35,37 @@ export class WebappComponent {
   }
 
 
+  // showfile(){
+  //   this.http.get('http://localhost:3000/files').subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       console.error('Error uploading file', error);
+  //     }
+  //   );
+  // }
+
+  showfile() {
+    this.http.get('http://localhost:3000/files').subscribe(
+      (response: any[] | any) => {
+        console.log(response);
+  
+        if (Array.isArray(response)) {
+          this.imageUrls = response.map(file => {
+            return `http://localhost:3000/uploads/${file.filename}`;
+          });
+        } else {
+          this.imageUrls = [`http://localhost:3000/${response.path}/${response.filename}`];
+        }
+      },
+      (error) => {
+        console.error('Error retrieving files', error);
+      }
+    );
+  }
+  
+
+  
 
 }
