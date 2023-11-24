@@ -28,7 +28,8 @@ export class RegisterComponent {
   const userData = {
     phone: f.value.phone,
     pass: f.value.pass,
-    naming : f.value.naming
+    naming : f.value.naming,
+    
   };
   console.log(userData);
 

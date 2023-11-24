@@ -71,6 +71,19 @@ export class UplodecarComponent {
     this.car.selectedCarNames = this.carData[brand];
   }
   
+  submit(f:any){
+    const userData = {
+      brand : f.value.brand,
+      carName :f.value.carName,
+      carModel:f.value.carModel,
+      fuelType:f.value.fuelType,
+      carkilometre:f.value.carkilometre,
+      carPrice:f.value.carPrice,
+      contactDetails:f.value.contactDetails,
+      fileUpload:f.value.fileUpload,
+    };
+    console.log(userData);
+  }
 }
 
 
