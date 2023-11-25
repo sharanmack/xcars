@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 type CarData = {
   [key: string]: string[];
 };
@@ -8,7 +9,13 @@ type CarData = {
   styleUrls: ['./uplodecar.component.css']
 })
 export class UplodecarComponent {
+  selectedFile: File | null = null;
+  imageUrls: string[] = [];
+
+  constructor(private http: HttpClient) {}
+
   car = {
+    email : '',
     name: '',
     model: '',
     price: 0,
@@ -71,19 +78,54 @@ export class UplodecarComponent {
     this.car.selectedCarNames = this.carData[brand];
   }
   
-  submit(f:any){
-    const userData = {
-      brand : f.value.brand,
-      carName :f.value.carName,
-      carModel:f.value.carModel,
-      fuelType:f.value.fuelType,
-      carkilometre:f.value.carkilometre,
-      carPrice:f.value.carPrice,
-      contactDetails:f.value.contactDetails,
-      fileUpload:f.value.fileUpload,
-    };
-    console.log(userData);
+  // submit(f:any){
+  //   const userData = {
+  //     email : f.value.email,
+  //     brand : f.value.brand,
+  //     carName :f.value.carName,
+  //     carModel:f.value.carModel,
+  //     fuelType:f.value.fuelType,
+  //     carkilometre:f.value.carkilometre,
+  //     carPrice:f.value.carPrice,
+  //     contactDetails:f.value.contactDetails,
+  //     fileUpload:f.value.fileUpload,
+  //   };
+  //   console.log(userData);
+  // }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
   }
+
+
+  onSubmit(f: any) {
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+
+      // Append other form data to the same formData
+      formData.append('email', f.value.email);
+      formData.append('brand', f.value.brand);
+      formData.append('carName', f.value.carName);
+      formData.append('carModel', f.value.carModel);
+      formData.append('fuelType', f.value.fuelType);
+      formData.append('carkilometre', f.value.carkilometre);
+      formData.append('carPrice', f.value.carPrice);
+      formData.append('contactDetails', f.value.contactDetails);
+
+      const apiUrl = 'http://localhost:3000/upload';
+
+      this.http.post(apiUrl, formData).subscribe(
+        (response) => {
+          console.log(formData);
+        },
+        (error) => {
+          console.error('Error uploading data and file', error);
+        }
+      );
+    }
+  }
+
 }
 
 

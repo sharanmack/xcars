@@ -1,3 +1,34 @@
-<div *ngFor="let imageUrl of imageUrls">
+<!-- <div *ngFor="let imageUrl of imageUrls">
   <img [src]="imageUrl" alt="Image" />
+</div> -->
+<app-navbar></app-navbar>
+
+
+
+<div class="container mt-4">
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let car of carsData">
+        <div class="image-container">
+        <td>
+          <img src="http://localhost:3000/uploads/{{ car.filename }}" alt="{{ car.carName }}" class="img-thumbnail">
+        </td>
+        </div>
+        <td>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Email:</strong> {{ car.email }}</li>
+            <li class="list-group-item"><strong>Brand:</strong> {{ car.brand }}</li>
+            <li class="list-group-item"><strong>Car Name:</strong> {{ car.carName }}</li>
+            <li class="list-group-item"><strong>Car Model:</strong> {{ car.carModel }}</li>
+            <li class="list-group-item"><strong>Fuel Type:</strong> {{ car.fuelType }}</li>
+            <li class="list-group-item"><strong>Kilometres:</strong> {{ car.carkilometre }}</li>
+            <li class="list-group-item"><strong>Price:</strong> {{ car.carPrice }}</li>
+            <li class="list-group-item"><strong>Contact Details:</strong> {{ car.contactDetails }}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+

@@ -3,69 +3,15 @@
 <div class="container">
   <div class="car-upload-form">
     <h2>Upload Car Information</h2>
-    <!-- <form (ngSubmit)="submitForm()" #carForm="ngForm">
 
-      <div class="form-group">
-        <label for="brand">Brand</label>
-        <select id="brand" name="brand" class="form-control" required [(ngModel)]="car.selectedBrand" (change)="onSelectBrand(car.selectedBrand)">
-          <option value="" disabled selected>Select a brand</option>
-          <option *ngFor="let brand of carNames" [value]="brand">{{ brand }}</option>
-        </select>
-      </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
 
-      <div class="form-group">
-        <label for="carName">Car Name</label>
-        <select id="carName" name="carName" class="form-control" required [(ngModel)]="car.name">
-          <option value="" disabled selected>Select a car name</option>
-          <option *ngFor="let name of car.selectedCarNames" [value]="name">{{ name }}</option>
-        </select>
-      </div>
+      <div class="box col-sm-12">
 
-      <div class="form-group">
-        <label for="carModel">Model</label>
-        <input type="text" id="carModel" name="carModel" class="form-control" required [(ngModel)]="car.model">
-      </div>
-
-      <div class="form-group">
-        <label for="fuelType">Fuel Type</label>
-        <select id="fuelType" name="fuelType" class="form-control" required [(ngModel)]="car.fuelType">
-          <option value="" disabled selected>Select fuel type</option>
-          <option *ngFor="let type of fuelTypes" [value]="type">{{ type }}</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="carkilometre">Kilometre</label>
-        <input type="number" id="carkilometre" name="carkilometre" class="form-control" required [(ngModel)]="car.kilometre">
-      </div>
-
-      <div class="form-group">
-        <label for="carPrice">Price</label>
-        <input type="number" id="carPrice" name="carPrice" class="form-control" required [(ngModel)]="car.price">
-      </div>
-
-      <div class="form-group">
-        <label for="contactDetails">More Details</label>
-        <textarea id="contactDetails" name="contactDetails" class="form-control" required [(ngModel)]="car.contactDetails"></textarea>
-      </div>
-
-     <div class="form-group custom-file-upload">
-  <label for="fileUpload">Upload Images</label>
-  <input type="file" id="fileUpload" (change)="selectFiles($event)" multiple>
-  <button type="button" class="btn btn-upload" (click)="fileUpload.click()">Choose File</button>
-</div>
-
-
-      <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-
-    </form> -->
-
-    <form #f="ngForm" (ngSubmit)="submit(f)">
-
-      <div class="box">
-
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" required [(ngModel)]="car.email" placeholder="Enter Your Email Address To contact">
+        </div>
         
          
 
@@ -119,11 +65,17 @@
 
     
 
-      <div class="form-group custom-file-upload">
+      <!-- <div class="form-group custom-file-upload">
         <label for="fileUpload">Upload Images</label>
-        <input type="file" id="fileUpload" (change)="selectFiles($event)" multiple>
-        <button type="button" class="btn btn-upload" (click)="fileUpload.click()">Choose File</button>
+        
+        <input type="file" (change)="onFileSelected($event)" name="fileUpload" />
+        
+      </div> -->
+      <div class="form-group custom-file-upload">
+        <label for="fileUpload" class="custom-file-label">Upload Images</label>
+        <input type="file" (change)="onFileSelected($event)" name="fileUpload" id="fileUpload" class="custom-file-input" />
       </div>
+      
 
 
 

@@ -8,36 +8,53 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CarlistComponent {
 
-  imageUrls: string[] = [];
+  // imageUrls: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  // constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-   
-
-    
-      this.http.get('http://localhost:3000/files').subscribe(
-        (response: any[] | any) => {
-          console.log(response);
-    
-          if (Array.isArray(response)) {
-            this.imageUrls = response.map(file => {
-              return `http://localhost:3000/uploads/${file.filename}`;
-            });
-          } else {
-            this.imageUrls = [`http://localhost:3000/${response.path}/${response.filename}`];
-          }
-        },
-        (error) => {
-          console.error('Error retrieving files', error);
-        }
-      );
+  // ngOnInit() {
    
     
+  //     this.http.get('http://localhost:3000/files').subscribe(
+  //       (response: any[] | any) => {
+  //         console.log(response);
+    
+  //         if (Array.isArray(response)) {
+  //           this.imageUrls = response.map(file => {
+  //             return `http://localhost:3000/uploads/${file.filename}`;
+  //           });
+  //         } else {
+  //           this.imageUrls = [`http://localhost:3000/${response.path}/${response.filename}`];
+  //         }
+  //       },
+  //       (error) => {
+  //         console.error('Error retrieving files', error);
+  //       }
+  //     );
+   
+    
+  // }
+
+  // getFilePath(file: any): string {
+  //   // Adjust the URL based on your backend server configuration
+  //   return `http://localhost:3000/${file.path}`;
+  // }
+
+  goBack(): void {
+    window.history.back();
+  }
+  carsData: any[] = [];
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.fetchData();
   }
 
-  getFilePath(file: any): string {
-    // Adjust the URL based on your backend server configuration
-    return `http://localhost:3000/${file.path}`;
+  fetchData() {
+    this.http.get<any[]>('http://localhost:3000/files').subscribe(data => {
+      this.carsData = data;
+    });
   }
+  
 }
