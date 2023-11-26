@@ -32,3 +32,48 @@
 </div>
 
 
+
+
+
+<div class="container mt-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Email</th>
+        <th>Brand</th>
+        <th>Car Name</th>
+        <th>Car Model</th>
+        <th>Fuel Type</th>
+        <th>Car Kilometre</th>
+        <th>Car Price</th>
+        <th>Contact Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Use *ngFor to loop through the data array -->
+      <tr *ngFor="let car of carsData">
+        <td>
+          <!-- Display the first image with larger size -->
+          <img *ngIf="car.images && car.images.length > 0" [src]="'http://localhost:3000/uploads/' + car.images[0].filename" 
+               alt="{{ car.carName }}" class="img-thumbnail">
+          <!-- Display other images with smaller size -->
+          <div *ngIf="car.images && car.images.length > 1">
+            <div *ngFor="let image of car.images.slice(1)">
+              <img [src]="'http://localhost:3000/uploads/' + image.filename" alt="{{ car.carName }}" class="img-thumbnail mt-2">
+            </div>
+          </div>
+        </td>
+        <td>{{ car.email }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.carName }}</td>
+        <td>{{ car.carModel }}</td>
+        <td>{{ car.fuelType }}</td>
+        <td>{{ car.carkilometre }}</td>
+        <td>{{ car.carPrice }}</td>
+        <td>{{ car.contactDetails }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
