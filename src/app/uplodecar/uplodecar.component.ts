@@ -9,7 +9,7 @@ type CarData = {
   styleUrls: ['./uplodecar.component.css']
 })
 export class UplodecarComponent {
-  selectedFile: File | null = null;
+  // selectedFile: File | null = null;
   imageUrls: string[] = [];
 
   constructor(private http: HttpClient) {}
@@ -30,7 +30,7 @@ export class UplodecarComponent {
   msg: string = '';
   urls: string[] = [];
   submitted: boolean = false;
-  selectedFiles: File[] = [];
+  // selectedFiles: File[] = [];
   isFormOpen: boolean = false;
   carData: CarData = {
     'Maruti Suzuki': ['Maruti Suzuki Alto', 'S-Presso', 'Celerio', 'Wagon R',' Swift', 'Dzire', 'Baleno', 'Vitara Brezza', 'Ertiga', 'XL6', 'Ciaz', 'S-Cross'],
@@ -93,15 +93,21 @@ export class UplodecarComponent {
   //   console.log(userData);
   // }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+  selectedFiles: File[] = [];
+
+  onFileSelected(event: any, identifier: string) {
+    this.selectedFiles.push(event.target.files[0]);
   }
 
 
   onSubmit(f: any) {
-    if (this.selectedFile) {
+    
       const formData = new FormData();
-      formData.append('file', this.selectedFile);
+      for (const key in this.selectedFiles) {
+        if (this.selectedFiles.hasOwnProperty(key)) {
+          formData.append('files', this.selectedFiles[key]);
+        }
+      }
 
       // Append other form data to the same formData
       formData.append('email', f.value.email);
@@ -123,7 +129,7 @@ export class UplodecarComponent {
           console.error('Error uploading data and file', error);
         }
       );
-    }
+    
   }
 
 }
