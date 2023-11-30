@@ -28,7 +28,7 @@ export class CarlistComponent implements OnInit {
     const searchLowerCase = this.searchText.toLowerCase();
     this.filteredCarsData = this.carsData.filter(car => {
       return (
-        car.brand.toLowerCase().includes(searchLowerCase) ||
+        // car.brand.toLowerCase().includes(searchLowerCase) ||
         car.carName.toLowerCase().includes(searchLowerCase)
       );
     });
