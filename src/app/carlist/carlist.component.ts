@@ -10,7 +10,7 @@ export class CarlistComponent implements OnInit {
   searchText: string = '';
   carsData: any[] = [];
   filteredCarsData: any[] = [];
-
+  selectedFilter: string = 'carName';
   modelFilter: string = '';
   priceFilter: number | null = null;
   kilometerFilter: number | null = null;

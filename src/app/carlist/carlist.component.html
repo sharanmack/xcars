@@ -3,25 +3,35 @@
 <div class="container mt-4">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="mb-3">
-    <label >Filter by Car Name:</label>
+    <label for="filterType">Filter by:</label>
+    <select id="filterType" [(ngModel)]="selectedFilter" (change)="updateFilter()">
+      <option value="carName">Car Name</option>
+      <option value="model">Model</option>
+      <option value="price">Price</option>
+      <option value="kilometer">Kilometer</option>
+    </select>
+  </div>
+  
+  <div class="mb-3" *ngIf="selectedFilter === 'carName'">
+    <label>Filter by Car Name:</label>
     <input type="text" [(ngModel)]="searchText" placeholder="Search..." (input)="updateFilter()">
   </div>
- 
-  <div class="mb-3">
+  
+  <div class="mb-3" *ngIf="selectedFilter === 'model'">
     <label for="modelFilter">Filter by Model:</label>
     <input type="text" id="modelFilter" [(ngModel)]="modelFilter" (input)="updateFilter()">
   </div>
-
-  <div class="mb-3">
+  
+  <div class="mb-3" *ngIf="selectedFilter === 'price'">
     <label for="priceFilter">Filter by Price:</label>
     <input type="number" id="priceFilter" [(ngModel)]="priceFilter" (input)="updateFilter()">
   </div>
-
-  <div class="mb-3">
+  
+  <div class="mb-3" *ngIf="selectedFilter === 'kilometer'">
     <label for="kilometerFilter">Filter by Kilometer:</label>
     <input type="number" id="kilometerFilter" [(ngModel)]="kilometerFilter" (input)="updateFilter()">
   </div>
-
+  
 
 
   <table class="table table-bordered table-hover">
