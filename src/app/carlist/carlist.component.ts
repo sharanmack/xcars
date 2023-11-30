@@ -11,6 +11,10 @@ export class CarlistComponent implements OnInit {
   carsData: any[] = [];
   filteredCarsData: any[] = [];
 
+  modelFilter: string = '';
+  priceFilter: number | null = null;
+  kilometerFilter: number | null = null;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -28,8 +32,10 @@ export class CarlistComponent implements OnInit {
     const searchLowerCase = this.searchText.toLowerCase();
     this.filteredCarsData = this.carsData.filter(car => {
       return (
-        // car.brand.toLowerCase().includes(searchLowerCase) ||
-        car.carName.toLowerCase().includes(searchLowerCase)
+        car.carName.toLowerCase().includes(searchLowerCase) &&
+        car.carModel.toLowerCase().includes(this.modelFilter.toLowerCase()) &&
+        (this.priceFilter === null || car.carPrice <= this.priceFilter) &&
+        (this.kilometerFilter === null || car.carkilometre <= this.kilometerFilter)
       );
     });
   }
@@ -42,12 +48,16 @@ export class CarlistComponent implements OnInit {
       this.updateFilter();
     }
   }
+
   toggleImageSize(car: any): void {
     car.enlargeImage = !car.enlargeImage;
   }
-  
 
   editCar(car: any): void {
     console.log('Editing car:', car);
   }
+
+
+
+  
 }

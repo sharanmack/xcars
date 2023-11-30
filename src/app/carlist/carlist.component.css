@@ -1,26 +1,45 @@
 /* Add this to your carlist.component.css file */
 
+/* Styles for the filter inputs */
+.filter-input {
+  padding: 6px; /* Adjust padding for a smaller input */
+  border: 1px solid #2149ec; /* Add a border color for a stylish look */
+  border-radius: 3px;
+  width: 100%;
+}
+
+/* Add some margin to the labels for better spacing */
+.mb-3 label {
+  margin-bottom: 5px;
+}
+
 .container {
   margin-top: 20px;
 }
 
-input[type="text"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Remove the default input styling */
+input[type="text"],
+input[type="number"] {
   margin-bottom: 10px;
-  width: 100%; /* Make the input full width */
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
 }
 
 table {
   width: 100%;
+  max-width: 1200px; /* Adjust the maximum width as needed */
   border-collapse: collapse;
   margin-bottom: 20px;
+  margin-top: 10px; /* Add some margin to the top of the table */
 }
 
 th, td {
   border: 1px solid #ddd;
-  padding: 10px; /* Increase padding for better readability */
+  padding: 12px; /* Increase padding for better readability */
   text-align: left;
 }
 
@@ -36,7 +55,7 @@ button {
   background-color: #2149ec;
   color: #fff;
   border: none;
-  padding: 8px 12px; /* Adjust padding for better button size */
+  padding: 10px 15px; /* Adjust padding for better button size */
   border-radius: 4px;
   cursor: pointer;
 }
@@ -46,7 +65,7 @@ button:hover {
 }
 
 .btn i {
-  margin-right: 0px; /* Add some space between the icon and text */
+  margin-right: 5px; /* Add some space between the icon and text */
   font-size: 1.2rem; /* Adjust the icon size as needed */
 }
 
@@ -55,18 +74,16 @@ td.text-center {
   text-align: center;
 }
 
+.enlarge-image {
+  width: 200px;
+  height: 200px;
+  transition: all 0.5s ease-in-out; 
+}
 
-  .enlarge-image {
-    width: 200px;
-    height: 200px;
-    transition: all 0.5s ease-in-out; 
-  }
-
-  .enlarge-image:hover {
-    cursor: pointer;
-    transform: scale(2.0); 
-  }
-
+.enlarge-image:hover {
+  cursor: pointer;
+  transform: scale(2.0); 
+}
 
 
 
