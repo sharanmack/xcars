@@ -4,39 +4,10 @@
 <app-navbar></app-navbar>
 
 
-
 <div class="container mt-4">
-  <table class="table">
-    <tbody>
-      <tr *ngFor="let car of carsData">
-        <div class="image-container">
-        <td>
-          <img src="http://localhost:3000/uploads/{{ car.filename }}" alt="{{ car.carName }}" class="img-thumbnail">
-        </td>
-        </div>
-        <td>
-          <ul class="list-group">
-            <li class="list-group-item"><strong>Email:</strong> {{ car.email }}</li>
-            <li class="list-group-item"><strong>Brand:</strong> {{ car.brand }}</li>
-            <li class="list-group-item"><strong>Car Name:</strong> {{ car.carName }}</li>
-            <li class="list-group-item"><strong>Car Model:</strong> {{ car.carModel }}</li>
-            <li class="list-group-item"><strong>Fuel Type:</strong> {{ car.fuelType }}</li>
-            <li class="list-group-item"><strong>Kilometres:</strong> {{ car.carkilometre }}</li>
-            <li class="list-group-item"><strong>Price:</strong> {{ car.carPrice }}</li>
-            <li class="list-group-item"><strong>Contact Details:</strong> {{ car.contactDetails }}</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
-
-
-<div class="container mt-4">
-  <table class="table">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search..." (input)="updateFilter()">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
         <th>Image</th>
@@ -48,19 +19,27 @@
         <th>Car Kilometre</th>
         <th>Car Price</th>
         <th>Contact Details</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Use *ngFor to loop through the data array -->
-      <tr *ngFor="let car of carsData">
+      <tr *ngFor="let car of filteredCarsData">
         <td>
-          <!-- Display the first image with larger size -->
-          <img *ngIf="car.images && car.images.length > 0" [src]="'http://localhost:3000/uploads/' + car.images[0].filename" 
-               alt="{{ car.carName }}" class="img-thumbnail">
-          <!-- Display other images with smaller size -->
+          <img
+            *ngIf="car.images && car.images.length > 0"
+            [src]="'http://localhost:3000/uploads/' + car.images[0].filename"
+            alt="{{ car.carName }}"
+            class="img-thumbnail"
+            (click)="toggleImageSize(car)"
+            [ngClass]="{ 'enlarge-image': car.enlargeImage }"
+          />
           <div *ngIf="car.images && car.images.length > 1">
             <div *ngFor="let image of car.images.slice(1)">
-              <img [src]="'http://localhost:3000/uploads/' + image.filename" alt="{{ car.carName }}" class="img-thumbnail mt-2">
+              <img
+                [src]="'http://localhost:3000/uploads/' + image.filename"
+                alt="{{ car.carName }}"
+                class="img-thumbnail mt-2"
+              />
             </div>
           </div>
         </td>
@@ -72,8 +51,59 @@
         <td>{{ car.carkilometre }}</td>
         <td>{{ car.carPrice }}</td>
         <td>{{ car.contactDetails }}</td>
+        <td>
+          <button class="btn btn-warning me-1" (click)="editCar(car)">
+            <i class="fa fa-edit"></i>
+          </button>
+          <button class="btn btn-danger ms-1" (click)="deleteCar(car)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
 
 
+
+
+
+
+
+<!-- 
+
+<div class="container mt-4">
+  <ul class="list-unstyled">
+    <li *ngFor="let car of carsData" data-aut-id="itemBox" data-aut-category-id="81" class="_1DNjI">
+      <a class="_2cbZ2" [href]="'/item/' + car.carName">
+        <figure class="_3UrC5" data-aut-id="itemImage">
+          <img *ngIf="car.images && car.images.length > 0" [src]="'http://localhost:3000/uploads/' + car.images[0].filename" 
+               alt="{{ car.carName }}" sizes="(min-width: 1280px) 15vw, (min-width: 1024px) 20vw, (min-width: 960px) 25vw, (min-width: 540px) 25vw, (min-width: 320px) 30vw, 35vw" 
+               srcset="https://apollo-singapore.akamaized.net:443/v1/files/zagcedmpkucm3-IN/image;s=100x200;q=60 100w,
+                        https://apollo-singapore.akamaized.net:443/v1/files/zagcedmpkucm3-IN/image;s=200x400;q=60 200w,
+                        https://apollo-singapore.akamaized.net:443/v1/files/zagcedmpkucm3-IN/image;s=300x600;q=60 300w,
+                        https://apollo-singapore.akamaized.net:443/v1/files/zagcedmpkucm3-IN/image;s=400x800;q=60 400w,
+                        https://apollo-singapore.akamaized.net:443/v1/files/zagcedmpkucm3-IN/image;s=600x1200;q=60 600w" 
+               class="_3vnjf"><noscript></noscript>
+        </figure>
+        <div class="fTZT3">
+          <div class="_1IpS4">
+            <label><span class="TIvlD"><img src="c:\Users\WELCOME\Desktop\R.jfif" alt="Featured"><span>Featured</span></span></label>
+          </div>
+          <span class="_2Ks63" data-aut-id="itemPrice">{{ car.carPrice }}</span>
+          <span class="YBbhy" data-aut-id="itemDetails">{{ car.carModel }} - {{ car.carkilometre }} km</span>
+          <span class="_2poNJ" data-aut-id="itemTitle">{{ car.carName }}</span>
+          <div class="_3rmDx">
+            <span class="_2VQu4" data-aut-id="item-location">{{ car.contactDetails }}</span>
+            <span class="_2jcGx"><span>{{ car.date }}</span></span>
+          </div>
+        </div>
+      </a>
+      <span class="_1Tqbb _18Wg3">
+        <button type="button" class="rui-3a8k1 _29mJd favoriteOff" role="button" tabindex="0" data-aut-id="btnFav" title="Favourite">
+      
+        </button>
+      </span>
+    </li>
+  </ul>
+</div>  -->

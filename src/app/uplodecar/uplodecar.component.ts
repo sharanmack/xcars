@@ -131,7 +131,9 @@ export class UplodecarComponent {
       );
     
   }
-
+  showAlert(): void {
+    alert('Uplodded successful!'); 
+  }
 }
 
 
