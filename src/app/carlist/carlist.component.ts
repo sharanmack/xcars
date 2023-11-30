@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-carlist',
@@ -40,14 +40,63 @@ export class CarlistComponent implements OnInit {
     });
   }
 
+  // deleteCar(car: any): void {
+  //   // Implement your delete logic here
+  //   const index = this.carsData.indexOf(car);
+  //   if (index !== -1) {
+  //     this.carsData.splice(index, 1);
+  //     this.updateFilter();
+  //   }
+  // }
+
+  // deleteCar(car: any): void {
+  //   // Implement your delete logic here
+  //   console.log(car)
+  //   const endpoint = "/deletecar"
+  //   this.http.delete(`http://localhost:3000${endpoint}`, car).subscribe(
+  //     (response: any) => {
+  //       console.log("cmnt added");
+  //     },
+  //     (error) => {
+  //       console.error('Like/Unlike failed:', error);
+  //     }
+  //   )
+
+  //   const index = this.carsData.indexOf(car);
+  //   if (index !== -1) {
+  //     this.carsData.splice(index, 1);
+  //     this.updateFilter();
+  //   }
+  // }
+
   deleteCar(car: any): void {
-    // Implement your delete logic here
+    console.log(car);
+    const endpoint = "/deletecar";
+  
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: car,
+    };
+  
+    this.http.delete(`http://localhost:3000${endpoint}`, httpOptions).subscribe(
+      (response: any) => {
+        console.log("Car deleted successfully");
+      },
+      (error) => {
+        console.error('Car deletion failed:', error);
+        // Add your error handling logic here
+      }
+    );
+  
     const index = this.carsData.indexOf(car);
     if (index !== -1) {
       this.carsData.splice(index, 1);
       this.updateFilter();
     }
   }
+  
 
   toggleImageSize(car: any): void {
     car.enlargeImage = !car.enlargeImage;
