@@ -2,36 +2,37 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div class="mb-3">
-    <label for="filterType">Filter by:</label>
-    <select id="filterType" [(ngModel)]="selectedFilter" (change)="updateFilter()">
-      <option value="carName">Car Name</option>
-      <option value="model">Model</option>
-      <option value="price">Price</option>
-      <option value="kilometer">Kilometer</option>
-    </select>
-  </div>
+  <div class="filter-container">
+    <div class="filter-item">
+      <label for="filterType">Filter by:</label>
+      <select id="filterType" [(ngModel)]="selectedFilter" (change)="updateFilter()" class="filter-input">
+        <option value="carName">Car Name</option>
+        <option value="model">Model</option>
+        <option value="price">Price</option>
+        <option value="kilometer">Kilometer</option>
+      </select>
+    </div>
   
-  <div class="mb-3" *ngIf="selectedFilter === 'carName'">
-    <label>Filter by Car Name:</label>
-    <input type="text" [(ngModel)]="searchText" placeholder="Search..." (input)="updateFilter()">
-  </div>
+    <div class="filter-item" *ngIf="selectedFilter === 'carName'">
+      <label>Filter by Car Name:</label>
+      <input type="text" [(ngModel)]="searchText" placeholder="Search..." (input)="updateFilter()" class="filter-input">
+    </div>
   
-  <div class="mb-3" *ngIf="selectedFilter === 'model'">
-    <label for="modelFilter">Filter by Model:</label>
-    <input type="text" id="modelFilter" [(ngModel)]="modelFilter" (input)="updateFilter()">
-  </div>
+    <div class="filter-item" *ngIf="selectedFilter === 'model'">
+      <label for="modelFilter">Filter by Model:</label>
+      <input type="text" id="modelFilter" [(ngModel)]="modelFilter" (input)="updateFilter()" class="filter-input">
+    </div>
   
-  <div class="mb-3" *ngIf="selectedFilter === 'price'">
-    <label for="priceFilter">Filter by Price:</label>
-    <input type="number" id="priceFilter" [(ngModel)]="priceFilter" (input)="updateFilter()">
-  </div>
+    <div class="filter-item" *ngIf="selectedFilter === 'price'">
+      <label for="priceFilter">Filter by Price:</label>
+      <input type="number" id="priceFilter" [(ngModel)]="priceFilter" (input)="updateFilter()" class="filter-input">
+    </div>
   
-  <div class="mb-3" *ngIf="selectedFilter === 'kilometer'">
-    <label for="kilometerFilter">Filter by Kilometer:</label>
-    <input type="number" id="kilometerFilter" [(ngModel)]="kilometerFilter" (input)="updateFilter()">
+    <div class="filter-item" *ngIf="selectedFilter === 'kilometer'">
+      <label for="kilometerFilter">Filter by Kilometer:</label>
+      <input type="number" id="kilometerFilter" [(ngModel)]="kilometerFilter" (input)="updateFilter()" class="filter-input">
+    </div>
   </div>
-  
 
 
   <table class="table table-bordered table-hover">
@@ -52,15 +53,35 @@
     <tbody>
       <tr *ngFor="let car of filteredCarsData">
         <td>
-          <img
-            *ngIf="car.images && car.images.length > 0"
-            [src]="'http://localhost:3000/uploads/' + car.images[0].filename"
-            alt="{{ car.carName }}"
-            class="img-thumbnail"
-            (click)="toggleImageSize(car)"
-            [ngClass]="{ 'enlarge-image': car.enlargeImage }"
-          />
+          <div *ngIf="car.images && car.images.length > 0">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li *ngFor="let image of car.images; let i = index" [attr.data-target]="'#carouselExampleCaptions'" [attr.data-slide-to]="i" [ngClass]="{ 'active': i === 0 }"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div *ngFor="let image of car.images; let i = index" class="carousel-item" [ngClass]="{ 'active': i === 0 }">
+                  <img
+                    [src]="'http://localhost:3000/uploads/' + image.filename"
+                    alt="{{ car.carName }}"
+                    class="img-thumbnail d-block w-100"
+                    (click)="toggleImageSize(image)"
+                    [ngClass]="{ 'enlarge-image': image.enlargeImage }"
+                  />
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
         </td>
+        
+        
         <td>{{ car.email }}</td>
         <td>{{ car.brand }}</td>
         <td>{{ car.carName }}</td>

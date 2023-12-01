@@ -23,10 +23,11 @@ export class CarlistComponent implements OnInit {
 
   fetchData() {
     this.http.get<any[]>('http://localhost:3000/files').subscribe(data => {
-      this.carsData = data;
+      this.carsData = data.map(car => ({ ...car, enlargeImage: false }));
       this.updateFilter();
     });
   }
+  
 
   updateFilter() {
     const searchLowerCase = this.searchText.toLowerCase();
