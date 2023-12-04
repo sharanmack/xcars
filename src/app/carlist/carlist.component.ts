@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CarouselComponent } from 'ngx-bootstrap/carousel';
 
 @Component({
   selector: 'app-carlist',
@@ -15,6 +16,8 @@ export class CarlistComponent implements OnInit {
   priceFilter: number | null = null;
   kilometerFilter: number | null = null;
 
+  @ViewChild(CarouselComponent) carousel!: CarouselComponent;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -27,7 +30,6 @@ export class CarlistComponent implements OnInit {
       this.updateFilter();
     });
   }
-  
 
   updateFilter() {
     const searchLowerCase = this.searchText.toLowerCase();
@@ -41,35 +43,6 @@ export class CarlistComponent implements OnInit {
     });
   }
 
-  // deleteCar(car: any): void {
-  //   // Implement your delete logic here
-  //   const index = this.carsData.indexOf(car);
-  //   if (index !== -1) {
-  //     this.carsData.splice(index, 1);
-  //     this.updateFilter();
-  //   }
-  // }
-
-  // deleteCar(car: any): void {
-  //   // Implement your delete logic here
-  //   console.log(car)
-  //   const endpoint = "/deletecar"
-  //   this.http.delete(`http://localhost:3000${endpoint}`, car).subscribe(
-  //     (response: any) => {
-  //       console.log("cmnt added");
-  //     },
-  //     (error) => {
-  //       console.error('Like/Unlike failed:', error);
-  //     }
-  //   )
-
-  //   const index = this.carsData.indexOf(car);
-  //   if (index !== -1) {
-  //     this.carsData.splice(index, 1);
-  //     this.updateFilter();
-  //   }
-  // }
-
   deleteCar(car: any): void {
     console.log(car);
     const endpoint = "/deletecar";
@@ -80,7 +53,7 @@ export class CarlistComponent implements OnInit {
       }),
       body: car,
     };
-  
+
     this.http.delete(`http://localhost:3000${endpoint}`, httpOptions).subscribe(
       (response: any) => {
         console.log("Car deleted successfully");
@@ -97,7 +70,6 @@ export class CarlistComponent implements OnInit {
       this.updateFilter();
     }
   }
-  
 
   toggleImageSize(car: any): void {
     car.enlargeImage = !car.enlargeImage;
@@ -105,9 +77,18 @@ export class CarlistComponent implements OnInit {
 
   editCar(car: any): void {
     console.log('Editing car:', car);
+
   }
 
+  // prevImage(): void {
+  //   if (this.carousel && this.carousel.activeSlide > 0) {
+  //     this.carousel.prevSlide();
+  //   }
+  // }
 
-
-  
+  nextImage(): void {
+    if (this.carousel && this.carousel.activeSlide < this.filteredCarsData.length - 1) {
+      this.carousel.nextSlide();
+    }
+  }
 }
