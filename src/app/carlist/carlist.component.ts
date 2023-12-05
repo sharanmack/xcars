@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CarouselComponent } from 'ngx-bootstrap/carousel';
-
+import { AfterViewInit, ElementRef } from '@angular/core';
+import { ENV } from 'src/environments/environment';
 @Component({
   selector: 'app-carlist',
   templateUrl: './carlist.component.html',
@@ -15,17 +16,23 @@ export class CarlistComponent implements OnInit {
   modelFilter: string = '';
   priceFilter: number | null = null;
   kilometerFilter: number | null = null;
+  GetC = '/files';
+  domain: string;
 
   @ViewChild(CarouselComponent) carousel!: CarouselComponent;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.domain = ENV.apiUrl
+   }
 
   ngOnInit(): void {
     this.fetchData();
   }
 
   fetchData() {
-    this.http.get<any[]>('http://localhost:3000/files').subscribe(data => {
+    // `${this.domain}${this.endpoint}`
+    // 'http://localhost:3000/files'
+    this.http.get<any[]>(`${this.domain}${this.GetC}`).subscribe(data => {
       this.carsData = data.map(car => ({ ...car, enlargeImage: false }));
       this.updateFilter();
     });
@@ -54,7 +61,7 @@ export class CarlistComponent implements OnInit {
       body: car,
     };
 
-    this.http.delete(`http://localhost:3000${endpoint}`, httpOptions).subscribe(
+    this.http.delete(`${this.domain}${endpoint}`, httpOptions).subscribe(
       (response: any) => {
         console.log("Car deleted successfully");
       },
@@ -90,5 +97,10 @@ export class CarlistComponent implements OnInit {
     if (this.carousel && this.carousel.activeSlide < this.filteredCarsData.length - 1) {
       this.carousel.nextSlide();
     }
+  }
+
+  getImagePath(filename: string): string {
+    console.log(filename)
+    return `${this.domain}/uploads/${filename}`;
   }
 }
