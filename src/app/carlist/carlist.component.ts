@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CarouselComponent } from 'ngx-bootstrap/carousel';
+
 import { AfterViewInit, ElementRef } from '@angular/core';
 import { ENV } from 'src/environments/environment';
 @Component({
@@ -19,7 +19,7 @@ export class CarlistComponent implements OnInit {
   GetC = '/files';
   domain: string;
 
-  @ViewChild(CarouselComponent) carousel!: CarouselComponent;
+
 
   constructor(private http: HttpClient) {
     this.domain = ENV.apiUrl
@@ -30,8 +30,7 @@ export class CarlistComponent implements OnInit {
   }
 
   fetchData() {
-    // `${this.domain}${this.endpoint}`
-    // 'http://localhost:3000/files'
+
     this.http.get<any[]>(`${this.domain}${this.GetC}`).subscribe(data => {
       this.carsData = data.map(car => ({ ...car, enlargeImage: false }));
       this.updateFilter();
