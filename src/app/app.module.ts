@@ -28,7 +28,7 @@ import { UplodecarComponent } from './uplodecar/uplodecar.component';
 import { CarlistComponent } from './carlist/carlist.component';
 import { CarimageComponent } from './carimage/carimage.component';
 
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 
 @NgModule({
@@ -58,7 +58,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CarouselModule.forRoot()
+
 
   ],
   providers: [],
