@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 type CarData = {
   [key: string]: string[];
 };
@@ -8,7 +9,13 @@ type CarData = {
   styleUrls: ['./uplodecar.component.css']
 })
 export class UplodecarComponent {
+  // selectedFile: File | null = null;
+  imageUrls: string[] = [];
+
+  constructor(private http: HttpClient) {}
+
   car = {
+    email : '',
     name: '',
     model: '',
     price: 0,
@@ -23,7 +30,7 @@ export class UplodecarComponent {
   msg: string = '';
   urls: string[] = [];
   submitted: boolean = false;
-  selectedFiles: File[] = [];
+  // selectedFiles: File[] = [];
   isFormOpen: boolean = false;
   carData: CarData = {
     'Maruti Suzuki': ['Maruti Suzuki Alto', 'S-Presso', 'Celerio', 'Wagon R',' Swift', 'Dzire', 'Baleno', 'Vitara Brezza', 'Ertiga', 'XL6', 'Ciaz', 'S-Cross'],
@@ -46,7 +53,7 @@ export class UplodecarComponent {
     this.msg = 'Form submitted!';
     this.submitted = true;
   }
-
+  fileUpload: any;
   selectFiles(event: any) {
     this.selectedFiles = event.target.files;
     this.urls = [];
@@ -71,6 +78,62 @@ export class UplodecarComponent {
     this.car.selectedCarNames = this.carData[brand];
   }
   
+  // submit(f:any){
+  //   const userData = {
+  //     email : f.value.email,
+  //     brand : f.value.brand,
+  //     carName :f.value.carName,
+  //     carModel:f.value.carModel,
+  //     fuelType:f.value.fuelType,
+  //     carkilometre:f.value.carkilometre,
+  //     carPrice:f.value.carPrice,
+  //     contactDetails:f.value.contactDetails,
+  //     fileUpload:f.value.fileUpload,
+  //   };
+  //   console.log(userData);
+  // }
+
+  selectedFiles: File[] = [];
+
+  onFileSelected(event: any, identifier: string) {
+    this.selectedFiles.push(event.target.files[0]);
+  }
+
+
+  onSubmit(f: any) {
+    
+      const formData = new FormData();
+      for (const key in this.selectedFiles) {
+        if (this.selectedFiles.hasOwnProperty(key)) {
+          formData.append('files', this.selectedFiles[key]);
+        }
+      }
+
+      // Append other form data to the same formData
+      formData.append('email', f.value.email);
+      formData.append('brand', f.value.brand);
+      formData.append('carName', f.value.carName);
+      formData.append('carModel', f.value.carModel);
+      formData.append('fuelType', f.value.fuelType);
+      formData.append('carkilometre', f.value.carkilometre);
+      formData.append('carPrice', f.value.carPrice);
+      formData.append('contactDetails', f.value.contactDetails);
+
+      const apiUrl = 'http://localhost:3000/upload';
+
+      this.http.post(apiUrl, formData).subscribe(
+        (response) => {
+          console.log(formData);
+        },
+        (error) => {
+          console.error('Error uploading data and file', error);
+        }
+      );
+    
+  }
+  showAlert(): void {
+    alert('Uplodded successful!'); 
+  }
 }
 
 

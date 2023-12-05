@@ -25,6 +25,8 @@ import { RegisterComponent } from './register/register.component';
 
 import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { UplodecarComponent } from './uplodecar/uplodecar.component';
+import { CarlistComponent } from './carlist/carlist.component';
+import { CarimageComponent } from './carimage/carimage.component';
 
 
 
@@ -45,6 +47,8 @@ import { UplodecarComponent } from './uplodecar/uplodecar.component';
     GalleryComponent,
     RegisterComponent,
     UplodecarComponent,
+    CarlistComponent,
+    CarimageComponent,
     
     
  
@@ -54,6 +58,7 @@ import { UplodecarComponent } from './uplodecar/uplodecar.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    
 
   ],
   providers: [],

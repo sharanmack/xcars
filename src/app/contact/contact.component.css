@@ -1,66 +1,65 @@
 .box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 9px;
-  background-color: #0033ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.box:hover {
-  background-color: #7fa5ff;
-}
-
-.box span {
-  font-size: 29px;
-}
-
-.box + .box {
-  margin-left: 20px;
-}
-
-/* .card-body.d-flex.justify-content-center.align-items-center#youtube {
-  background-color: #00000043;
-  margin-top: 20px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 16px;
-} */
-
-.card-body {
-  margin-right: 50px;
-}
-
-.card-body.d-flex.justify-content-center.align-items-center#youtube a:hover {
-  text-decoration: none;
-}
-
-.btn-primary {
-  background-color: #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #007bff;
-}
-
-
-
-  #icon-container {
     display: flex;
-    justify-content: space-around; 
+    flex-direction: column;
     align-items: center;
-    padding: 6px;
-    border: 1px solid #858585;
-    border-radius: 10px;
-  }
-
-  .card-body {
-    margin: 0 20px; 
     text-align: center;
+    padding: 9px;
+    background-color: #0033ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
   }
-
+  
+  .box:hover {
+    background-color: #7fa5ff;
+  }
+  
+  .box span {
+    font-size: 29px;
+  }
+  
+  .box + .box {
+    margin-left: 20px;
+  }
+  
+  /* .card-body.d-flex.justify-content-center.align-items-center#youtube {
+    background-color: #00000043;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  } */
+  
+  .card-body {
+    margin-right: 50px;
+  }
+  
+  .card-body.d-flex.justify-content-center.align-items-center#youtube a:hover {
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #007bff;
+  }
+  
+  
+  
+    #icon-container {
+      display: flex;
+      justify-content: space-around; 
+      align-items: center;
+      padding: 6px;
+      border: 1px solid #858585;
+      border-radius: 10px;
+    }
+  
+    .card-body {
+      margin: 0 20px; 
+      text-align: center;
+    }

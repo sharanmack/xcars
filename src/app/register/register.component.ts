@@ -13,7 +13,9 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class RegisterComponent {
-
+  goBack(): void {
+    window.history.back();
+  }
   endpoint = '/register';
   domain: string;
   valid: boolean = true;
@@ -26,7 +28,8 @@ export class RegisterComponent {
   const userData = {
     phone: f.value.phone,
     pass: f.value.pass,
-    naming : f.value.naming
+    naming : f.value.naming,
+    
   };
   console.log(userData);
 

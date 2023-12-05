@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css']
+ 
+
 })
 export class IntroComponent {
   images: string[] = [
@@ -19,7 +21,7 @@ export class IntroComponent {
   currentImageUrl = this.images[this.currentImageIndex];
 
   ngOnInit() {
-    setInterval(() => this.changeImage(), 2100); // 2 minutes (2 * 60 * 1000 milliseconds)
+    setInterval(() => this.changeImage(), 2100); 
   }
 
   changeImage() {
