@@ -67,7 +67,7 @@ export class CarlistComponent implements OnInit {
       },
       (error) => {
         console.error('Car deletion failed:', error);
-        // Add your error handling logic here
+     
       }
     );
   
@@ -82,23 +82,29 @@ export class CarlistComponent implements OnInit {
     car.enlargeImage = !car.enlargeImage;
   }
 
-  editCar(car: any): void {
-    console.log('Editing car:', car);
 
-  }
+  confirmDelete(car: any): void {
+    const isVerified = this.verifyEmailOrPhoneNumber(car.email, car.c);
 
-  // prevImage(): void {
-  //   if (this.carousel && this.carousel.activeSlide > 0) {
-  //     this.carousel.prevSlide();
-  //   }
-  // }
-
-  nextImage(): void {
-    if (this.carousel && this.carousel.activeSlide < this.filteredCarsData.length - 1) {
-      this.carousel.nextSlide();
+    if (isVerified) {
+      const confirmation = confirm("Are you sure you want to delete this car?");
+      if (confirmation) {
+        this.deleteCar(car);
+      }
+    } else {
+      alert("Email or phone number does not match. Deletion not allowed.");
     }
   }
 
+  verifyEmailOrPhoneNumber(email: string, phoneNumber: string): boolean {
+    const userInputEmail = prompt("Enter your email:");
+    const userInputPhoneNumber = prompt("Enter your phone number:");
+
+    return userInputEmail === email || userInputPhoneNumber === phoneNumber;
+  }
+  
+
+  
   getImagePath(filename: string): string {
     console.log(filename)
     return `${this.domain}/uploads/${filename}`;

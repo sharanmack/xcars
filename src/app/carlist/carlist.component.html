@@ -61,14 +61,7 @@
                     <img [src]="getImagePath(image.filename)" class="d-block w-100" alt="Car Image">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button"  data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button"  data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+             
               </div>
            
         </td>
@@ -82,8 +75,8 @@
         <td>{{ car.carPrice }}</td>
         <td>{{ car.contactDetails }}</td>
         <td>
-         
-          <button class="btn btn-danger ms-1" (click)="deleteCar(car)">
+
+          <button class="btn btn-danger ms-1" (click)="confirmDelete(car)">
             <i class="fa fa-trash"></i>
           </button>
         </td>
