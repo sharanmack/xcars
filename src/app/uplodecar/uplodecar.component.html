@@ -63,14 +63,6 @@
         <textarea id="contactDetails" name="contactDetails" class="form-control" required [(ngModel)]="car.contactDetails"></textarea>
       </div>
 
-    
-
-      <!-- <div class="form-group custom-file-upload">
-        <label for="fileUpload">Upload Images</label>
-        
-        <input type="file" (change)="onFileSelected($event)" name="fileUpload" />
-        
-      </div> -->
       <div class="form-group custom-file-upload">
         <label for="fileUpload1" class="custom-file-label">Upload Image 1</label>
         <input type="file" (change)="onFileSelected($event, 'fileUpload1')" name="fileUpload1" id="fileUpload1" class="custom-file-input" />
@@ -91,52 +83,4 @@
       </div>
 
     </form>
-  </div>
-
-  <!-- <div class="side-by-side-container" *ngIf="submitted">
-    <div class="car-info">
-      <h2>Car Information</h2>
-      <div class="info-box">
-        <table>
-            <tr>
-              <td><strong>Brand:</strong></td>
-              <td>{{ car.selectedBrand }}</td>
-            </tr>
-            <tr>
-              <td><strong>Car Name:</strong></td>
-              <td>{{ car.name }}</td>
-            </tr>
-            <tr>
-              <td><strong>Model:</strong></td>
-              <td>{{ car.model }}</td>
-            </tr>
-            <tr>
-              <td><strong>Fuel Type:</strong></td>
-              <td>{{ car.fuelType }}</td>
-            </tr>
-            <tr>
-              <td><strong>Kilometre:</strong></td>
-              <td>{{ car.kilometre }}</td>
-            </tr>
-            <tr>
-              <td><strong>Price:</strong></td>
-              <td>{{ car.price }}</td>
-            </tr>
-            <tr>
-              <td><strong>More Details:</strong></td>
-              <td>{{ car.contactDetails }}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-  
-      <div class="selected-image">
-        <h2>Selected Images</h2>
-        <div class="image-box">
-          <div *ngFor="let imgUrl of urls">
-            <img [src]="imgUrl" alt="Selected Image" />
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>

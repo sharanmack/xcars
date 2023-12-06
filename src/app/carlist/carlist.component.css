@@ -21,6 +21,12 @@
 }
 
 
+.img-carousel {
+  height: 100px; 
+  object-fit: cover; 
+}
+
+
 td button + button {
   margin-left: 5px;
   border-left: 1px solid #ccc;
