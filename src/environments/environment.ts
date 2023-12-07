@@ -1,7 +1,7 @@
 
 export const ENV = {
     production: false,
-    apiUrl: 'http://localhost:3000',
+    apiUrl: 'https://zany-jewelry-cow.cyclic.app',
     
   };
   

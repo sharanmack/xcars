@@ -25,6 +25,18 @@
   height: 100px; 
   object-fit: cover; 
 }
+/* Set specific size for images with the "car-image" class */
+.car-image {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  object-fit: cover; /* Adjust the object-fit property as needed */
+}
+
+td img {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  object-fit: cover; /* Adjust the object-fit property as needed */
+}
 
 
 td button + button {
