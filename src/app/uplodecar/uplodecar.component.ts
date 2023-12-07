@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ENV } from 'src/environments/environment';
 type CarData = {
   [key: string]: string[];
 };
@@ -11,8 +12,11 @@ type CarData = {
 export class UplodecarComponent {
   // selectedFile: File | null = null;
   imageUrls: string[] = [];
-
-  constructor(private http: HttpClient) {}
+  endpoint = '/upload';
+  domain: string;
+  constructor(private http: HttpClient) {
+    this.domain = ENV.apiUrl
+  }
 
   car = {
     email : '',
@@ -54,20 +58,20 @@ export class UplodecarComponent {
     this.submitted = true;
   }
   fileUpload: any;
-  selectFiles(event: any) {
-    this.selectedFiles = event.target.files;
-    this.urls = [];
-    for (let i = 0; i < this.selectedFiles.length; i++) {
-      const file = this.selectedFiles[i];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.urls.push(e.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-  }
+  // selectFiles(event: any) {
+  //   this.selectedFiles = event.target.files;
+  //   this.urls = [];
+  //   for (let i = 0; i < this.selectedFiles.length; i++) {
+  //     const file = this.selectedFiles[i];
+  //     if (file) {
+  //       const reader = new FileReader();
+  //       reader.onload = (e: any) => {
+  //         this.urls.push(e.target.result);
+  //       };
+  //       reader.readAsDataURL(file);
+  //     }
+  //   }
+  // }
 
   fuelTypes: string[] = ['Petrol', 'Diesel', 'Electric'];
 
@@ -78,37 +82,21 @@ export class UplodecarComponent {
     this.car.selectedCarNames = this.carData[brand];
   }
   
-  // submit(f:any){
-  //   const userData = {
-  //     email : f.value.email,
-  //     brand : f.value.brand,
-  //     carName :f.value.carName,
-  //     carModel:f.value.carModel,
-  //     fuelType:f.value.fuelType,
-  //     carkilometre:f.value.carkilometre,
-  //     carPrice:f.value.carPrice,
-  //     contactDetails:f.value.contactDetails,
-  //     fileUpload:f.value.fileUpload,
-  //   };
-  //   console.log(userData);
-  // }
 
-  selectedFiles: File[] = [];
+  selectedFile: File|null= null;
 
   onFileSelected(event: any, identifier: string) {
-    this.selectedFiles.push(event.target.files[0]);
+    this.selectedFile=event.target.files[0];
   }
 
-
   onSubmit(f: any) {
-    
-      const formData = new FormData();
-      for (const key in this.selectedFiles) {
-        if (this.selectedFiles.hasOwnProperty(key)) {
-          formData.append('files', this.selectedFiles[key]);
-        }
+    if(!this.selectedFile){
+      return;
       }
 
+      const formData = new FormData();
+      formData.append('filename', this.selectedFile);
+      // formData.append('file',this.selectedFile);
       // Append other form data to the same formData
       formData.append('email', f.value.email);
       formData.append('brand', f.value.brand);
@@ -118,10 +106,9 @@ export class UplodecarComponent {
       formData.append('carkilometre', f.value.carkilometre);
       formData.append('carPrice', f.value.carPrice);
       formData.append('contactDetails', f.value.contactDetails);
+     console.log(formData)
 
-      const apiUrl = 'http://localhost:3000/upload';
-
-      this.http.post(apiUrl, formData).subscribe(
+      this.http.post(`${this.domain}${this.endpoint}`, formData).subscribe(
         (response) => {
           console.log(formData);
         },

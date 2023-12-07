@@ -57,8 +57,8 @@ import { CarimageComponent } from './carimage/carimage.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+
 
   ],
   providers: [],

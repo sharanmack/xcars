@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CarouselComponent } from 'ngx-bootstrap/carousel';
 
+import { AfterViewInit, ElementRef } from '@angular/core';
+import { ENV } from 'src/environments/environment';
 @Component({
   selector: 'app-carlist',
   templateUrl: './carlist.component.html',
@@ -15,17 +16,22 @@ export class CarlistComponent implements OnInit {
   modelFilter: string = '';
   priceFilter: number | null = null;
   kilometerFilter: number | null = null;
+  GetC = '/files';
+  domain: string;
 
-  @ViewChild(CarouselComponent) carousel!: CarouselComponent;
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+    this.domain = ENV.apiUrl
+   }
 
   ngOnInit(): void {
     this.fetchData();
   }
 
   fetchData() {
-    this.http.get<any[]>('http://localhost:3000/files').subscribe(data => {
+
+    this.http.get<any[]>(`${this.domain}${this.GetC}`).subscribe(data => {
       this.carsData = data.map(car => ({ ...car, enlargeImage: false }));
       this.updateFilter();
     });
@@ -54,13 +60,13 @@ export class CarlistComponent implements OnInit {
       body: car,
     };
 
-    this.http.delete(`http://localhost:3000${endpoint}`, httpOptions).subscribe(
+    this.http.delete(`${this.domain}${endpoint}`, httpOptions).subscribe(
       (response: any) => {
         console.log("Car deleted successfully");
       },
       (error) => {
         console.error('Car deletion failed:', error);
-        // Add your error handling logic here
+     
       }
     );
   
@@ -75,20 +81,31 @@ export class CarlistComponent implements OnInit {
     car.enlargeImage = !car.enlargeImage;
   }
 
-  editCar(car: any): void {
-    console.log('Editing car:', car);
 
+  confirmDelete(car: any): void {
+    const isVerified = this.verifyEmailOrPhoneNumber(car.email, car.c);
+
+    if (isVerified) {
+      const confirmation = confirm("Are you sure you want to delete this car?");
+      if (confirmation) {
+        this.deleteCar(car);
+      }
+    } else {
+      alert("Email or phone number does not match. Deletion not allowed.");
+    }
   }
 
-  // prevImage(): void {
-  //   if (this.carousel && this.carousel.activeSlide > 0) {
-  //     this.carousel.prevSlide();
-  //   }
-  // }
+  verifyEmailOrPhoneNumber(email: string, phoneNumber: string): boolean {
+    const userInputEmail = prompt("Enter your email:");
+    const userInputPhoneNumber = prompt("Enter your phone number:");
 
-  nextImage(): void {
-    if (this.carousel && this.carousel.activeSlide < this.filteredCarsData.length - 1) {
-      this.carousel.nextSlide();
-    }
+    return userInputEmail === email || userInputPhoneNumber === phoneNumber;
+  }
+  
+
+  
+  getImagePath(filename: string): string {
+    console.log(filename)
+    return `${this.domain}/uploads/${filename}`;
   }
 }
